@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="./uv/uv.bundle.js"></script>
-    <script src="./uv/uv.config.js"></script>
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+    <script src="/epoxy/index.js"></script>
+    <script src="/baremux/bare.cjs" type="text/javascript"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap');
         body {
@@ -66,8 +68,11 @@
     </div>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./uv.sw-handler.js', {
+        BareMux.SetTransport('EpxMod.EpoxyClient', {
+            wisp: 'wss://ruby.rubynetwork.co/wisp/',
+        });
+        if ('serviceWorker' in navigator) { 
+            navigator.serviceWorker.register('/handler.js', {
                 scope: '/'
             }).then(() => {
 

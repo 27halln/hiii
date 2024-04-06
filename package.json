@@ -28,6 +28,8 @@
     "@fastify/compress": "^7.0.3",
     "@fastify/http-proxy": "^9.5.0",
     "@fastify/static": "^7.0.3",
+    "@mercuryworkshop/bare-mux": "^1.0.5",
+    "@mercuryworkshop/epoxy-transport": "^1.1.0",
     "@rubynetwork/rammerhead": "1.2.41-ruby.2",
     "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
     "@tomphttp/bare-server-node": "^2.0.3",

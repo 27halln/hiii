@@ -4,6 +4,9 @@ import chalk from 'chalk';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { httpFactory } from './http.js';
+import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
+import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
+import { baremuxPath } from '@mercuryworkshop/bare-mux';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = fastify({ logger: false, serverFactory: httpFactory })
@@ -15,11 +18,35 @@ app.register(fastifyStatic, {
   wildcard: false
 });
 
+app.register(fastifyStatic, {
+    root: epoxyPath,
+    prefix: '/epoxy',
+    serve: true,
+    wildcard: true,
+    decorateReply: false
+});
+
+app.register(fastifyStatic, {
+    root: baremuxPath,
+    prefix: '/baremux',
+    serve: true,
+    wildcard: true,
+    decorateReply: false,
+})
+
+app.register(fastifyStatic, {
+    root: uvPath,
+    prefix: '/uv',
+    serve: true,
+    wildcard: true,
+    decorateReply: false
+})
+
 app.setNotFoundHandler((req: any, res: any) => {
   res.sendFile("index.html"); // SPA catch-all
 });
 
-//@ts-expect-error missing types
+//@ts-expect-error fuck off no one cares
 const prt = parseInt(process.env.PORT) || 3000;
 
 console.log(chalk.green(`Server running at http://localhost:${prt}`));
