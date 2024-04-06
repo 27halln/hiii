@@ -1,0 +1,29 @@
+{
+  "name": "incognito",
+  "version": "1.0.0",
+  "description": "A fork of the original Incognito website adding new features and fixing bugs",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "incognito",
+    "website",
+    "fork",
+    "ultraviolet",
+    "proxy",
+    "motortruck1221",
+    "incognito-website",
+    "titanium-network"
+  ],
+  "author": "motortruck1221",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@fastify/compress": "^7.0.3",
+    "@fastify/http-proxy": "^9.5.0",
+    "@fastify/static": "^7.0.3",
+    "@rubynetwork/rammerhead": "1.2.41-ruby.2",
+    "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
+    "fastify": "^4.26.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
+  }
+}
