@@ -1,25 +1,6 @@
 # Incognito
-Access the world wide web
 
-# Setup
-```
-git clone https://github.com/caracal-js/Incognito.git
-cd Incognito
-git submodule update --init
-```
-
-# Ultraviolet
-Ultraviolet's bare server by default is set to Incognito's official bare server (https://incog.dev/bare/)
-
-Change the bare server in `uv/uv.config.js` to whatever bare server you have.
-
-Folder prefixes in `uv.sw.js` and `uv.config.js` will have to be changed to where `uv/` is located
-
-`/uv.sw.js` --> `/uv/uv.sw.js`
-
-# Games
-Games are not included by default due to the extremely large size of them. 
-
-```
-git clone https://github.com/caracal-js/gfiles.git source
-```
+- Why this fork?
+  - Unfortunatley, most of the forks of this project are outdated and not maintained. This fork is to keep the project up-to-date and maintained.
+    - This fork is based on the original project by [Incognito](https://github.com/caracal-js/incognito).
+    - Another fork by [Amethyst Network](https://github.com/amethystnetwork-dev/incognito) is also available but tends to be less updated
