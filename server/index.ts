@@ -3,7 +3,7 @@ import fastifyStatic from '@fastify/static';
 import chalk from 'chalk';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { httpFactory } from './http';
+import { httpFactory } from './http.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = fastify({ logger: false, serverFactory: httpFactory })
@@ -19,6 +19,7 @@ app.setNotFoundHandler((req: any, res: any) => {
   res.sendFile("index.html"); // SPA catch-all
 });
 
+//@ts-expect-error missing types
 const prt = parseInt(process.env.PORT) || 3000;
 
 console.log(chalk.green(`Server running at http://localhost:${prt}`));

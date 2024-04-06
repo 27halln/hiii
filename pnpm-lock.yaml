@@ -44,9 +44,6 @@ dependencies:
   wisp-server-node:
     specifier: ^1.0.4
     version: 1.0.4
-  ws:
-    specifier: ^8.16.0
-    version: 8.16.0
 
 packages:
 

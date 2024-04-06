@@ -9,7 +9,8 @@
     "build:client": "node ./build.js",
     "build": "npm run build:server && npm run build:client",
     "start": "node ./dist/server/index.js",
-    "dev": "tsx --watch server/index.ts"
+    "dev": "tsx --watch server/index.ts",
+    "bstart": "npm run build && npm run start"
   },
   "keywords": [
     "incognito",
@@ -36,7 +37,6 @@
     "fs-extra": "^11.2.0",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4",
-    "wisp-server-node": "^1.0.4",
-    "ws": "^8.16.0"
+    "wisp-server-node": "^1.0.4"
   }
 }
