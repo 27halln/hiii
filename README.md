@@ -17,3 +17,7 @@ Games are not included by default due to the extremly large size of them.
 ```
 git clone https://github.com/caracal-js/gfiles.git source
 ```
+# Credits
+[caracal-js](https://github.com/caracal-js)
+[Motortruck1221](https://github.com/motortruck1221)
+[Riftriot](https://github.com/riftriot)
