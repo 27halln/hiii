@@ -44,16 +44,7 @@ function access(app) {
 
             clearTimeout(app.timeout);
             app.timeout = setTimeout(async () => {
-                const res = await fetch('https://incog.dev/bare/v1/', {
-                    headers: {
-                        'x-bare-host': 'duckduckgo.com',
-                        'x-bare-protocol': 'https:',
-                        'x-bare-path': '/ac/?q=' + encodeURIComponent(event.target.value),
-                        'x-bare-port': '443',
-                        'x-bare-headers': '{}',
-                        'x-bare-forward-headers': '[]'
-                    }
-                })
+                const res = await fetch(`/search=${encodeURIComponent(event.target.value)}`)
                 const json = await res.json();
 
                 for (const suggestion of json) {
