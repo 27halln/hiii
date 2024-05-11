@@ -11,7 +11,6 @@ import { baremuxPath } from '@mercuryworkshop/bare-mux';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = fastify({ logger: false, serverFactory: httpFactory })
-const bare = createBareServer("/bare/");
 
 app.register(fastifyStatic, {
   root: path.join(__dirname, '..', 'src'),
