@@ -6,7 +6,9 @@ import { fileURLToPath } from 'url';
 import { httpFactory } from './http.js';
 import { createBareServer } from "@tomphttp/bare-server-node";
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
+// @ts-expect-error missing types
 import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
+// @ts-expect-error missing types
 import { baremuxPath } from '@mercuryworkshop/bare-mux';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
