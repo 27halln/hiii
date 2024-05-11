@@ -42,6 +42,7 @@ const httpFactory = (handler: any, opts: any) => {
                 routeRhUpgrade(req, socket, head);
             }
             else if (req.url?.endsWith('/wisp/')) {
+                // @ts-expect-error wispOptions is a thing
                 wisp.routeRequest(req, socket, head, wispOptions);
             }
         })

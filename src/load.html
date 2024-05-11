@@ -70,10 +70,12 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then(() => {
-                console.log('Service worker ready!');
-                BareMux.SetTransport('EpxMod.EpoxyClient', {
-                    wisp: (location.protocol === 'https:') ? 'wss' : 'ws' + '://' + location.host + '/wisp/',
-                });
+                if (!localStorage.getItem('incog||transport')) {
+                    BareMux.SetTransport('EpxMod.EpoxyClient', {
+                        wisp: (location.protocol === 'https:') ? 'wss' : 'ws' + '://' + location.host + '/wisp/',
+                    });
+                    localStorage.setItem('incog||transport', true);
+                };
                 let url = atob(decodeURIComponent(window.location.hash.slice(1)));
                 if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
                 else if (!(url.startsWith('https://') || url.startsWith('http://'))) {
