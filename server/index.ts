@@ -53,9 +53,9 @@ app.get("/search=:query", async (req, res) => {
   res.send(response);
 });
 
-//app.setNotFoundHandler((req: any, res: any) => {
- // res.sendFile("index.html"); // SPA catch-all
-//});
+app.setNotFoundHandler((req: any, res: any) => {
+    res.sendFile("index.html"); // SPA catch-all
+});
 
 
 //@ts-expect-error fuck off no one cares
