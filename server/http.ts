@@ -8,6 +8,7 @@ const bare = createBareServer("/bare/");
 const rh = createRammerhead();
 const rammerheadScopes = [ "/rammerhead.js", "/hammerhead.js", "/transport-worker.js", "/task.js", "/iframe-task.js", "/worker-hammerhead.js", "/messaging", "/sessionexists", "/deletesession", "/newsession", "/editsession", "/needpassword", "/syncLocalStorage", "/api/shuffleDict", "/mainport" ];
 const rammerheadSession = /^\/[a-z0-9]{32}/;
+const wispOptions = { logging: false }
 function shouldRouteRh(req: any) {
   const url = new URL(req.url, "http://0.0.0.0");
   return (rammerheadScopes.includes(url.pathname) || rammerheadSession.test(url.pathname))
@@ -41,7 +42,7 @@ const httpFactory = (handler: any, opts: any) => {
                 routeRhUpgrade(req, socket, head);
             }
             else if (req.url?.endsWith('/wisp/')) {
-                wisp.routeRequest(req, socket, head);
+                wisp.routeRequest(req, socket, head, wispOptions);
             }
         })
 }
