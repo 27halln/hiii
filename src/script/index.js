@@ -8,7 +8,6 @@ import { community } from './community.js';
 
 window.app = new App();
 
-
 switch(localStorage.getItem('incog||background')) {
     case 'stars':
         particlesJS.load('.particles', './json/stars.json');
@@ -170,36 +169,10 @@ document.querySelector('.access-panel .controls .icon').addEventListener('error'
 document.querySelector('.access-panel').addEventListener('mouseenter', async event => {
     const frame = document.querySelector('.access-frame');
     const win = frame.contentWindow;
-
     if (win && win.__uv) {
         document.querySelector('.access-panel .controls input').value = Object.getOwnPropertyDescriptor(Document.prototype, 'title').get.call(win.document);
-        const favi = document.querySelector.call(win.document, 'link[rel=icon]');
-
-        if (favi && Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi)) {
-            const res = await win.__uv.client.fetch.fetch.call(
-                win,
-                Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi)
-            );
-
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
-
-            document.querySelector('.access-panel .controls .icon').src = url;
-            URL.revokeObjectURL(url);
-        } else {
-            const res = await win.__uv.client.fetch.fetch.call(
-                win,
-                win.__uv.rewriteUrl(
-                    '/favicon.ico'
-                )
-            );
-
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
-
-            document.querySelector('.access-panel .controls .icon').src = url;
-            URL.revokeObjectURL(url);
-        };
+        frame.contentDocument.querySelector("link[rel='icon']");
+        document.querySelector('.access-panel .controls .icon').src = icon.href;
     };
 });
 
