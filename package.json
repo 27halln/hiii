@@ -37,8 +37,9 @@
     "@types/node": "^20.12.11",
     "chalk": "^5.3.0",
     "fastify": "^4.27.0",
+    "fastify-plugin": "^4.5.1",
     "fs-extra": "^11.2.0",
-    "tsx": "^4.9.4",
+    "tsx": "^4.10.2",
     "typescript": "^5.4.5",
     "wisp-server-node": "^1.1.0"
   }
