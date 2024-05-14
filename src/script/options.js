@@ -265,7 +265,7 @@ async function createAbout(app) {
     const json = await res.json();
     
     const authors = [];
-    const socials = [];
+    const donate = [];
     const contacts = [];
 
     for (const entry of json.authors) {
@@ -278,8 +278,8 @@ async function createAbout(app) {
         )
     };
 
-    for (const entry of json.socials) {
-        socials.push(
+    for (const entry of json.donate) {
+        donate.push(
             app.createElement('p', `${entry.name}${entry.data ? ' - ' + entry.data : ''}`, {
                 style: {
                     'margin-bottom': '0'
@@ -330,7 +330,7 @@ async function createAbout(app) {
             class: 'data-section'
         }),
         app.createElement('section', [
-            app.createElement('span', 'Socials', {
+            app.createElement('span', 'Donate', {
                 style: {
                     display: 'block',
                     'margin-bottom': '6px',
@@ -338,7 +338,7 @@ async function createAbout(app) {
                     'font-weight': '500'
                 }
             }),
-            app.createElement('div', socials)
+            app.createElement('div', donate)
         ], {
             class: 'data-section'
         }),

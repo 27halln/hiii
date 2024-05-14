@@ -5,7 +5,7 @@
     },
     {
         "question": "Is my information secure",
-        "answer": "Yes, your informaton is as secure as the sites visiting them. Our SSL encryption ensures even more that it is secure."
+        "answer": "Yes, your informaton is as secure as the sites visiting them. Our <a href=\"https://github.com/MercuryWorkshop/wisp-protocol\">end to end TLS encryption through websockets</a> ensures even more that it is secure."
     },
     {
         "question": "Where can I obtain more links to Incognito",
