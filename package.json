@@ -26,6 +26,7 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@fastify/compress": "^7.0.3",
+    "@fastify/cookie": "^9.3.1",
     "@fastify/http-proxy": "^9.5.0",
     "@fastify/static": "^7.0.4",
     "@mercuryworkshop/bare-mux": "^1.1.0",
