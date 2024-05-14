@@ -19,7 +19,7 @@ app.register(cookieParser);
 app.register(import("@fastify/compress"));
 
 //Uncomment the following line to enable masqr
-app.register(masqr);
+//app.register(masqr);
 
 app.register(fastifyStatic, {
   root: path.join(__dirname, "..", "src"),
