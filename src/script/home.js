@@ -58,14 +58,14 @@ function access(app) {
                                     document.querySelector('main').style.display = 'none';
                                     document.querySelector('header').style.display = 'none';
                                     frame.style.display = 'block';
-                                    frame.src = './load.html#' + encodeURIComponent(btoa(suggestion.phrase));
+                                    frame.src = window.__uv$config.prefix +  window.__uv$config.encodeUrl("https://bing.com/search?q=" + suggestion.phrase);
                                     document.querySelector('.access-panel').style.removeProperty('display');
                                 }
                             }
                         })
                     )
                 };
-            }, 400);
+            }, 100);
 
         }).toString() + ')()'
     );
