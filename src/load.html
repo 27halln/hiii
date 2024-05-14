@@ -70,8 +70,12 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then(() => {
+                const wispUrl =
+                    (location.protocol === "https:" ? "wss://" : "ws://") +
+                    location.host +
+                    "/wisp/";
                 BareMux.SetTransport('EpxMod.EpoxyClient', {
-                    wisp: (location.protocol === 'https:') ? 'wss' : 'ws' + '://' + location.host + '/wisp/',
+                    wisp: wispUrl,
                 });
             });
             let url = atob(decodeURIComponent(window.location.hash.slice(1)));
