@@ -7,13 +7,26 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format:code": "biome format . --write",
+    "format:imports": "biome check . --write",
+    "format": "concurrently -m 1 \"npm:format:code\" \"npm:format:imports\""
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
+    "@astrojs/node": "^8.3.1",
+    "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@playform/compress": "^0.0.13",
     "astro": "^4.10.3",
+    "astro-helmet": "^1.0.2",
+    "astro-robots-txt": "^1.0.0",
+    "astro-seo": "^0.8.4",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "@biomejs/biome": "1.8.1"
   }
 }

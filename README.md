@@ -26,7 +26,7 @@ tsx server/index.ts
 
 # TODO
 
-- [ ] i18n
+- [ ] [i18n](https://github.com/yassinedoghri/astro-i18next#readme)
 
 # Games
 # Credits
