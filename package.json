@@ -17,16 +17,26 @@
     "@astrojs/node": "^8.3.1",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/middie": "^8.3.1",
+    "@fastify/static": "^7.0.4",
     "@playform/compress": "^0.0.13",
+    "@rubynetwork/corlink-fastify": "^2.0.1",
+    "@tomphttp/bare-server-node": "^2.0.3",
+    "@types/node": "^20.14.7",
     "astro": "^4.10.3",
     "astro-helmet": "^1.0.2",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
+    "fastify": "^4.28.0",
+    "rammerhead": "https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.4.5"
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5",
+    "wisp-server-node": "^1.1.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "@biomejs/biome": "1.8.1"
+    "@biomejs/biome": "1.8.1",
+    "concurrently": "^8.2.2"
   }
 }
