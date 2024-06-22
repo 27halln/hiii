@@ -1,0 +1,13 @@
+<script>
+    function theme() {
+        const currentTheme = localStorage.getItem("incog||currentTheme");
+        if (currentTheme) {
+            if (currentTheme === "default") {
+                document.documentElement.className = ""
+            }
+            document.documentElement.className = currentTheme
+        }
+    }
+    theme()
+    document.addEventListener("astro:after-swap", theme)
+</script>
