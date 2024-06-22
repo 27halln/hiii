@@ -5,6 +5,7 @@
 <img alt="repo size" src="https://img.shields.io/github/repo-size/titaniumnetwork-dev/incognito?style=for-the-badge"></img>
 <img alt="website status" src="https://img.shields.io/website?url=https%3A%2F%2Fincog.nebula.christmas&style=for-the-badge"></img>
 <img alt="commit a week" src="https://img.shields.io/github/commit-activity/w/titaniumnetwork-dev/incognito?style=for-the-badge"></img>
+<img alt="original repo" src="https://img.shields.io/badge/Original-Repo-gray?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fcaracal-js%2Fincognito"></img>
 
 </div>
 
@@ -45,6 +46,13 @@
 -   Multiple Proxy Backends:
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [RammerHead](https://github.com/binary-person/rammerhead)
+---
+
+## Contributors
+
+- [MotorTruck1221](https://motortruck1221.com) - Maintainer
+- [Rifting](https://github.com/rifting) - Maintainer
+- [caracal-js](https://github.com/caracal-js) - Original Creator
 ---
 
 ## Tech Stack
