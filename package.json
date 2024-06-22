@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "tsx server/server.ts",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -30,6 +30,7 @@
     "astro-icon": "^1.1.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
+    "chalk": "^5.3.0",
     "fastify": "^4.28.0",
     "rammerhead": "https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz",
     "tailwindcss": "^3.4.4",

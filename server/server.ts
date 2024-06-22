@@ -3,6 +3,7 @@ import fastifyCookie from '@fastify/cookie';
 import fastifyMiddie from '@fastify/middie';
 import fastifyStatic from '@fastify/static';
 import { masqr } from '@rubynetwork/corlink-fastify';
+import chalk from 'chalk';
 import Fastify from 'fastify';
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
@@ -28,4 +29,7 @@ await app.register(fastifyStatic, {
 await app.register(fastifyMiddie);
 app.use(ssrHandler);
 
-app.listen({ port: 8080 });
+console.log(chalk.green(`Server listening on ${chalk.bold('http://localhost:8080')}`));
+console.log(chalk.magenta(`Server also listening on ${chalk.bold('http://0.0.0.0:8080')}`));
+
+app.listen({ port: 8080, host: '0.0.0.0' });
