@@ -14,14 +14,14 @@ export default defineConfig({
         tailwind(),
         robotsTxt(),
         sitemap(),
+        icon(),
         playformCompress({
             CSS: false,
             HTML: true,
             Image: true,
             JavaScript: true,
             SVG: true
-        }),
-        icon()
+        })
     ],
     output: 'server',
     adapter: node({
