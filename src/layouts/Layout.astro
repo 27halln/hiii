@@ -2,27 +2,57 @@
 import { SEO } from 'astro-seo';
 const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
-import SetTheme from '@components/settings/Themes.astro';
+import SettingsLoader from '@components/settings/Loader.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <SetTheme transition:persist />
+        <SettingsLoader transition:persist />
         <SEO
             title={title}
             titleTemplate="Incognito | %s"
             titleDefault="Incognito"
             description="Search the world wide web"
+            charset="UTF-8"
+            openGraph = {{
+                basic: {
+                    title: "Incognito",
+                    type: "website",
+                    url: "https://incog.nebula.christmas",
+                    image: "/logo.svg"
+                },
+                optional: {
+                    description: "Search the world wide web"
+                }
+            }}
+            twitter = {{
+                card: "summary_large_image",
+                url: "https://incog.nebula.christmas",
+                title: "Incognito",
+                description: "Search the world wide web",
+                image: "/logo.svg",
+                imageAlt: "Incognito's logo"
+            }}
+            extend = {{
+                link: [
+                    { rel: "icon", type: "image/svg+xml", href: "/logo.svg" },
+                    { rel: "sitemap", href: "/sitemap-index.xml" },
+                    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+                    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
+                    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" },
+                    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" },
+                    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" },
+                ],
+                meta: [
+                    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+                    { name: "title", content: "Incognito" },
+                ]
+            }}
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <ViewTransitions />
     </head>
     <body class="w-full h-screen min-h-screen text-[--text-color]">
         <style is:global>
-            @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
             * {
                 scrollbar-width:thin;
                 scrollbar-color:var(--scrollbar-thumb-color) var(--scrollbar-track-color);

@@ -32,6 +32,9 @@ importers:
       '@iconify-json/fa-solid':
         specifier: ^1.1.8
         version: 1.1.8
+      '@iconify-json/mdi':
+        specifier: ^1.1.67
+        version: 1.1.67
       '@playform/compress':
         specifier: ^0.0.13
         version: 0.0.13(@types/node@20.14.7)(typescript@5.4.5)
@@ -1002,6 +1005,9 @@ packages:
 
   '@iconify-json/fa-solid@1.1.8':
     resolution: {integrity: sha512-o1Z+pvz+bidq8lqXC8uOhBxlJ19NEH87TQ6JSXOQPQJ8zDIMpx2nbDFJjFtR5nTWQXLPRGEb0NO9NJAvalxeiw==}
+
+  '@iconify-json/mdi@1.1.67':
+    resolution: {integrity: sha512-00nllHES8hyACwIfgySlQgAE6MKgpr2wsKfpifMiZWZ9aXC5l4Jb0lR3lJSWwXgOW6kzAOdzC3T+2VOfBBZ13A==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -5278,6 +5284,10 @@ snapshots:
     optional: true
 
   '@iconify-json/fa-solid@1.1.8':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/mdi@1.1.67':
     dependencies:
       '@iconify/types': 2.0.0
 
