@@ -2,7 +2,7 @@
     "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
     "files": {
         "ignore": ["~/", "**/dist/**", ".github/**"],
-        "include": ["**/"]
+        "include": ["**/**", "server/**"]
     },
     "formatter": {
         "indentStyle": "space",
