@@ -51,7 +51,7 @@ import LoadScripts from '@components/Scripts.astro';
                 ]
             }}
         />
-        <ViewTransitions />
+        <ViewTransitions fallback="animate" />
     </head>
     <body class="w-full h-screen min-h-screen text-[--text-color]">
         <style is:global>
@@ -133,6 +133,6 @@ import LoadScripts from '@components/Scripts.astro';
                 background-position: center;
             }
         </style>
-            <slot transition:animate={"fade"} />
+        <slot transition:animate={"fade"} />
     </body>
 </html>

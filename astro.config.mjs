@@ -51,6 +51,21 @@ export default defineConfig({
                     }
                 ]
             })
-        ]
+        ],
+        server: {
+            proxy: {
+                "/wisp/": {
+                    target: "wss://ruby.rubynetwork.co/wisp/",
+                    changeOrigin: true,
+                    ws: true,
+                    rewrite: (path) => path.replace(/^\/wisp\//, "")
+                },
+                "/bare/": {
+                    target: "https://tomp.app/",
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/bare\//, "")
+                },
+            }
+        }
     }
 });

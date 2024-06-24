@@ -1,3 +1,4 @@
+
 <script>
     function serviceWorker() {
         window.addEventListener("load", function() {
@@ -7,8 +8,9 @@
             document.body.appendChild(sw);
         })
     }
-    function scripts() {
-        return new Promise<void>((resolve) => {
+    //@ts-ignore I know it doesn't exist fuck off
+    window.loadProxyScripts = function() {
+        return new Promise<void>((resolve, reject) => {
             const epoxyScript = document.createElement('script');
             epoxyScript.src = 'epoxy/index.js';
             epoxyScript.defer = true;
@@ -29,12 +31,26 @@
             bareMux.src = 'baremux/bare.cjs';
             bareMux.defer = true;
             document.body.appendChild(bareMux);
-            resolve();
+            const search = document.createElement('script');
+            search.src = "search.js";
+            search.defer = true;
+            document.body.appendChild(search);
+            const checkScripts = setInterval(() => {
+                if (typeof EpxMod !== 'undefined' && typeof BareMux !== 'undefined') {
+                    clearInterval(checkScripts);
+                    resolve();
+                }
+            }, 100);
         })
     }
-    //@ts-ignore I know it doesn't exist
-    window.loadScripts = function() {
-        scripts();
+    //@ts-ignore I know it doesn't exist fuck off
+    window.setTransport = function(transport: string) {
+        return new Promise<void>((resolve) => {
+            localStorage.setItem("incog||transport", transport);
+            const wispUrl = (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/";
+            BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl })
+            resolve();
+        })
     }
     serviceWorker();
 </script>

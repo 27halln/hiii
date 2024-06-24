@@ -8,6 +8,27 @@
             document.documentElement.className = currentTheme
         }
     }
-    theme()
+    function proxy() {
+        const currentProxy = localStorage.getItem("incog||proxy");
+        if (!currentProxy) {
+            localStorage.setItem("incog||proxy", "uv");
+        }
+    }
+    function transport() {
+        const currentTransport = localStorage.getItem("incog||transport");
+        if (!currentTransport) {
+            localStorage.setItem("incog||transport", "epoxy");
+        }
+    }
+    function searchUrl() {
+        const currentSearch = localStorage.getItem("incog||search");
+        if (!currentSearch) {
+            localStorage.setItem("incog||search", "https://www.google.com/search?q=%s");
+        }
+    }
+    theme();
+    proxy();
+    transport();
+    searchUrl();
     document.addEventListener("astro:after-swap", theme)
 </script>
