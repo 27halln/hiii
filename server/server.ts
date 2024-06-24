@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import Fastify from 'fastify';
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
+import fastifyCompress from '@fastify/compress';
 
 const app = Fastify({ logger: false, serverFactory: serverFactory });
 
@@ -23,6 +24,13 @@ if (process.env.MASQR) {
         builtinCookieParser: false
     });
 }
+await app.register(fastifyCompress, {
+    encodings: [
+        'br',
+        'gzip',
+        'deflate'
+    ]
+})
 await app.register(fastifyStatic, {
     root: fileURLToPath(new URL('../dist/client', import.meta.url))
 });

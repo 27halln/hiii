@@ -3,11 +3,13 @@ import { SEO } from 'astro-seo';
 const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 import SettingsLoader from '@components/settings/Loader.astro';
+import LoadScripts from '@components/Scripts.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <SettingsLoader transition:persist />
+        <LoadScripts transition:persist />
         <SEO
             title={title}
             titleTemplate="Incognito | %s"

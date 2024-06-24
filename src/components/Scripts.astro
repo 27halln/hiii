@@ -1,0 +1,40 @@
+<script>
+    function serviceWorker() {
+        window.addEventListener("load", function() {
+            const sw = document.createElement('script');
+            sw.src = 'register.js'
+            sw.defer = true
+            document.body.appendChild(sw);
+        })
+    }
+    function scripts() {
+        return new Promise<void>((resolve) => {
+            const epoxyScript = document.createElement('script');
+            epoxyScript.src = 'epoxy/index.js';
+            epoxyScript.defer = true;
+            document.body.appendChild(epoxyScript);
+            const bareScript = document.createElement('script');
+            bareScript.src = 'transports/bareTransport.js';
+            document.body.appendChild(bareScript);
+            bareScript.defer = true;
+            const uvBundle = document.createElement('script');
+            uvBundle.src = 'uv/uv.bundle.js';
+            uvBundle.defer = true;
+            document.body.appendChild(uvBundle);
+            const uvConfig = document.createElement('script');
+            uvConfig.src = 'uv/uv.config.js';
+            uvConfig.defer = true;
+            document.body.appendChild(uvConfig);
+            const bareMux = document.createElement('script');
+            bareMux.src = 'baremux/bare.cjs';
+            bareMux.defer = true;
+            document.body.appendChild(bareMux);
+            resolve();
+        })
+    }
+    //@ts-ignore I know it doesn't exist
+    window.loadScripts = function() {
+        scripts();
+    }
+    serviceWorker();
+</script>
