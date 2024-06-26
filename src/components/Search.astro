@@ -10,10 +10,11 @@ import { Icon } from 'astro-icon/components';
         <Icon name="fa-solid:search" />
     </button>
     <script>
+        import { initServiceWorker } from "@scripts/serviceWorker.ts";
         declare var __uv$config: any;
-        declare var search: any;
+        declare var search: any; 
         function prox(url: string) {
-            const iframe = document.getElementById("iframe") as HTMLIFrameElement
+            const iframe = document.getElementById("iframe") as HTMLIFrameElement 
             iframe.classList.remove("hidden");
             iframe.src = url || "/load";
             if (!iframe) {
@@ -24,11 +25,25 @@ import { Icon } from 'astro-icon/components';
             try {
                 const formInput = document.getElementById("form-input") as HTMLInputElement;
                 document.getElementById("form-submit")?.addEventListener("click", function () {
-                    prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search") as string)))
+                    initServiceWorker().then(() => {
+                        const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+                        iframe.src = "/load";
+                        if (!iframe) {
+                            return;
+                        }
+                        prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search") as string)))
+                    })
                 })
                 document.getElementById("form-input")?.addEventListener("keypress", function (event: any) {
                     if (event.key === "Enter") {
-                        prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search") as string)))
+                        initServiceWorker().then(() => {
+                            const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+                            iframe.src = "/load";
+                            if (!iframe) {
+                                return;
+                            }
+                            prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search"))))
+                        })
                     }
                 })
             } catch (_) {}

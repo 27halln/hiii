@@ -6,15 +6,7 @@
             loadProxyScripts: any;
             setTransport: any;
         }
-    }
-    function serviceWorker() {
-        window.addEventListener("load", function() {
-            const sw = document.createElement('script');
-            sw.src = 'register.js'
-            sw.defer = true
-            document.body.appendChild(sw);
-        })
-    }
+    } 
     window.loadProxyScripts = function() {
         return new Promise<void>((resolve) => {
             const epoxyScript = document.createElement('script');
@@ -57,5 +49,4 @@
             resolve();
         })
     }
-    serviceWorker();
 </script>
