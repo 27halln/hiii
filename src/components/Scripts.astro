@@ -1,5 +1,12 @@
-
 <script>
+    declare var BareMux: any;
+    declare var EpxMod: any;
+    declare global {
+        interface Window {
+            loadProxyScripts: any;
+            setTransport: any;
+        }
+    }
     function serviceWorker() {
         window.addEventListener("load", function() {
             const sw = document.createElement('script');
@@ -8,9 +15,8 @@
             document.body.appendChild(sw);
         })
     }
-    //@ts-ignore I know it doesn't exist fuck off
     window.loadProxyScripts = function() {
-        return new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve) => {
             const epoxyScript = document.createElement('script');
             epoxyScript.src = 'epoxy/index.js';
             epoxyScript.defer = true;
@@ -43,7 +49,6 @@
             }, 100);
         })
     }
-    //@ts-ignore I know it doesn't exist fuck off
     window.setTransport = function(transport: string) {
         return new Promise<void>((resolve) => {
             localStorage.setItem("incog||transport", transport);

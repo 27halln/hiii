@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(async (sw) => {
+    navigator.serviceWorker.ready.then(async () => {
         //await registerRemoteListener(sw.active!)
         console.log('Service Worker Ready');
         await window.loadProxyScripts();

@@ -1,9 +1,9 @@
 import { createServer } from 'node:http';
 import { createBareServer } from '@tomphttp/bare-server-node';
-import { rh, routeRhRequest, routeRhUpgrade, shouldRouteRh } from './rammerhead';
+import { routeRhRequest, routeRhUpgrade, shouldRouteRh } from './rammerhead';
 const bare = createBareServer('/bare/');
 import wisp from 'wisp-server-node';
-const serverFactory = (handler: any, opts: any) => {
+const serverFactory = (handler: any) => {
     return createServer()
         .on('request', (req: any, res: any) => {
             if (bare.shouldRoute(req)) {
