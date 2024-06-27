@@ -7,12 +7,12 @@ function initServiceWorker() {
                 //@ts-ignore
                 await window.loadProxyScripts();
                 //@ts-ignore
-                await window.setTransport(localStorage.getItem("incog||transport"));
+                await window.setTransport(localStorage.getItem('incog||transport'));
                 resolve();
             });
             navigator.serviceWorker.register('/sw.js', { scope: '/' });
         }
-    })
+    });
 }
 
-export { initServiceWorker }
+export { initServiceWorker };

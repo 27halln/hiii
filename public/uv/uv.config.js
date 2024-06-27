@@ -7,9 +7,7 @@ self.__uv$config = {
             str
                 .toString()
                 .split('')
-                .map((char, ind) =>
-                    ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 3) : char
-                )
+                .map((char, ind) => (ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 3) : char))
                 .join('')
         );
     },
@@ -20,9 +18,7 @@ self.__uv$config = {
         return (
             decodeURIComponent(input)
                 .split('')
-                .map((char, ind) =>
-                    ind % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 3) : char
-                )
+                .map((char, ind) => (ind % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 3) : char))
                 .join('') + (search.length ? '?' + search.join('?') : '')
         );
     },
@@ -30,5 +26,5 @@ self.__uv$config = {
     client: '/uv/uv.client.js',
     bundle: '/uv/uv.bundle.js',
     config: '/uv/uv.config.js',
-    sw: '/uv/uv.sw.js',
+    sw: '/uv/uv.sw.js'
 };

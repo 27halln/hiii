@@ -1,14 +1,14 @@
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import { baremuxPath } from '@mercuryworkshop/bare-mux';
+import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
 import playformCompress from '@playform/compress';
+import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
+import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
-import icon from 'astro-icon';
-import { viteStaticCopy } from "vite-plugin-static-copy";
-import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
-import { baremuxPath } from "@mercuryworkshop/bare-mux";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,18 +35,18 @@ export default defineConfig({
             viteStaticCopy({
                 targets: [
                     {
-                        src: `${uvPath}/**/*`.replace(/\\/g, "/"),
-                        dest: "uv",
+                        src: `${uvPath}/**/*`.replace(/\\/g, '/'),
+                        dest: 'uv',
                         overwrite: false
                     },
                     {
-                        src: `${epoxyPath}/**/*`.replace(/\\/g, "/"),
-                        dest: "epoxy",
+                        src: `${epoxyPath}/**/*`.replace(/\\/g, '/'),
+                        dest: 'epoxy',
                         overwrite: false
                     },
-                    { 
-                        src: `${baremuxPath}/**/*`.replace(/\\/g, "/"),
-                        dest: "baremux",
+                    {
+                        src: `${baremuxPath}/**/*`.replace(/\\/g, '/'),
+                        dest: 'baremux',
                         overwrite: false
                     }
                 ]
@@ -54,18 +54,18 @@ export default defineConfig({
         ],
         server: {
             proxy: {
-                "/wisp/": {
-                    target: "wss://ruby.rubynetwork.co/wisp/",
+                '/wisp/': {
+                    target: 'wss://ruby.rubynetwork.co/wisp/',
                     changeOrigin: true,
                     ws: true,
-                    rewrite: (path) => path.replace(/^\/wisp\//, "")
+                    rewrite: (path) => path.replace(/^\/wisp\//, '')
                 },
-                "/bare/": {
-                    target: "https://ruby.rubynetwork.co/bare/",
+                '/bare/': {
+                    target: 'https://ruby.rubynetwork.co/bare/',
                     changeOrigin: true,
                     ws: true,
-                    rewrite: (path) => path.replace(/^\/bare\//, "")
-                },
+                    rewrite: (path) => path.replace(/^\/bare\//, '')
+                }
             }
         }
     }
