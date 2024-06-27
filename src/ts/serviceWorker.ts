@@ -7,7 +7,7 @@ function initServiceWorker() {
                 //@ts-ignore
                 await window.loadProxyScripts();
                 //@ts-ignore
-                await window.setTransport("epoxy");
+                await window.setTransport(localStorage.getItem("incog||transport"));
                 resolve();
             });
             navigator.serviceWorker.register('/sw.js', { scope: '/' });

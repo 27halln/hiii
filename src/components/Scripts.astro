@@ -45,7 +45,12 @@
         return new Promise<void>((resolve) => {
             localStorage.setItem("incog||transport", transport);
             const wispUrl = (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/";
-            BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl })
+            if (transport === "epoxy") {
+                BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl })
+            }
+            if (transport === "bare") {
+                BareMux.SetTransport("BareMod.BareClient", window.location.origin + "/bare/");
+            }
             resolve();
         })
     }

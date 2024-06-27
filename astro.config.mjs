@@ -61,8 +61,9 @@ export default defineConfig({
                     rewrite: (path) => path.replace(/^\/wisp\//, "")
                 },
                 "/bare/": {
-                    target: "https://tomp.app/",
+                    target: "https://ruby.rubynetwork.co/bare/",
                     changeOrigin: true,
+                    ws: true,
                     rewrite: (path) => path.replace(/^\/bare\//, "")
                 },
             }

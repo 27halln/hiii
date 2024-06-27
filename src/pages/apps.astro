@@ -1,0 +1,24 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="Apps">
+    <div class="w-full h-full px-[15%]">
+        <div class="h-[80px] w-full p-0 flex self-center transition duration-200">
+            <div class="flex grow items-center justify-left">
+                <a href="/" class="text-[30px] text-[--accent] mr-[20px]">
+                    <Icon name="mdi:chevron-left" />
+                </a>
+                <input class="flex flex-grow h-[42px] text-[14px] border-none text-[--text-color] bg-inherit outline-none" placeholder="Search apps" id="app-input"></input> 
+            </div>
+        </div>
+        <div class="w-full h-full grid justify-between gap-[20px] mt-[10px] grid-cols-[repeat(auto-fill,166px)]">
+            <div class="h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer bg-[url('https://incog.nebula.christmas/img/apps/google.jpg')]"></div>
+            <div class="h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer bg-[url('https://incog.nebula.christmas/img/apps/google.jpg')]"></div>
+            <div class="h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer bg-[url('https://incog.nebula.christmas/img/apps/google.jpg')]"></div>
+            <div class="h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer bg-[url('https://incog.nebula.christmas/img/apps/google.jpg')]"></div>
+            <div class="h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer bg-[url('https://incog.nebula.christmas/img/apps/google.jpg')]"></div>
+        </div>
+    </div>
+</Layout>

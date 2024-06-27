@@ -37,7 +37,7 @@ import LoadScripts from '@components/Scripts.astro';
             }}
             extend = {{
                 link: [
-                    { rel: "icon", type: "image/svg+xml", href: "/logo.svg" },
+                    { rel: "icon", type: "image/svg+xml", href: "/logo.svg", id: "favicon" },
                     { rel: "sitemap", href: "/sitemap-index.xml" },
                     { rel: "preconnect", href: "https://fonts.googleapis.com" },
                     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
@@ -133,6 +133,6 @@ import LoadScripts from '@components/Scripts.astro';
                 background-position: center;
             }
         </style>
-        <slot transition:animate={"fade"} />
+        <slot transition:animate={"fade"} /> 
     </body>
 </html>

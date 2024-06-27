@@ -1,34 +1,20 @@
 <script>
-    function theme() {
-        const currentTheme = localStorage.getItem("incog||currentTheme");
-        if (currentTheme) {
-            if (currentTheme === "default") {
-                document.documentElement.className = ""
-            }
-            document.documentElement.className = currentTheme
-        }
-    }
-    function proxy() {
-        const currentProxy = localStorage.getItem("incog||proxy");
-        if (!currentProxy) {
-            localStorage.setItem("incog||proxy", "uv");
-        }
-    }
-    function transport() {
-        const currentTransport = localStorage.getItem("incog||transport");
-        if (!currentTransport) {
-            localStorage.setItem("incog||transport", "epoxy");
-        }
-    }
+    import { setTheme, setProxy, setTransport, changeTitle, changeFavicon } from "@scripts/settings.ts";  
     function searchUrl() {
         const currentSearch = localStorage.getItem("incog||search");
         if (!currentSearch) {
             localStorage.setItem("incog||search", "https://www.google.com/search?q=%s");
         }
     }
-    theme();
-    proxy();
-    transport();
+    setTheme(localStorage.getItem("incog||currentTheme") as string || "ocean");
+    setProxy(localStorage.getItem("incog||proxy") as string || "uv");
+    setTransport(localStorage.getItem("incog||transport") as string || "epoxy");
     searchUrl();
-    document.addEventListener("astro:after-swap", theme)
+    changeTitle(localStorage.getItem("incog||title") as string || null);
+    changeFavicon(localStorage.getItem("incog||favicon") as string || null);
+    document.addEventListener("astro:after-swap", function() {
+        setTheme(localStorage.getItem("incog||currentTheme") as string || "ocean")
+        changeTitle(localStorage.getItem("incog||title") as string || null);
+        changeFavicon(localStorage.getItem("incog||favicon") as string || null);
+    });
 </script>
