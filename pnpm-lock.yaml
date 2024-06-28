@@ -83,6 +83,9 @@ importers:
       fastify:
         specifier: ^4.28.0
         version: 4.28.0
+      is-docker:
+        specifier: ^3.0.0
+        version: 3.0.0
       rammerhead:
         specifier: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz
         version: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz(bufferutil@4.0.8)(utf-8-validate@6.0.4)

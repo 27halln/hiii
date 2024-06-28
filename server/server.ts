@@ -7,6 +7,7 @@ import fastifyStatic from '@fastify/static';
 import { masqr } from '@rubynetwork/corlink-fastify';
 import chalk from 'chalk';
 import Fastify from 'fastify';
+import isDocker from 'is-docker';
 //@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
@@ -18,7 +19,7 @@ await app.register(fastifyCookie, {
     secret: process.env.COOKIE_SECRET || 'e',
     parseOptions: {}
 });
-if (process.env.MASQR) {
+if (process.env.MASQR === "true") {
     await app.register(masqr, {
         deniedFilePath: fileURLToPath(new URL('./denied.html', import.meta.url)),
         unlockedPaths: ['/bare/'],
@@ -35,7 +36,13 @@ await app.register(fastifyStatic, {
 });
 await app.register(fastifyMiddie);
 app.use(ssrHandler);
-const port: number = parseInt(process.env.PORT);
+let port: number;
+if (isDocker()) {
+    port = 8080;
+} 
+else {
+    port = parseInt(process.env.PORT as string);
+}
 console.log(chalk.green(`Server listening on ${chalk.bold('http://localhost:' + port)}`));
 console.log(chalk.magenta(`Server also listening on ${chalk.bold('http://0.0.0.0:' + port)}`));
 

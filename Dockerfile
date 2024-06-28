@@ -8,7 +8,6 @@ COPY . .
 RUN npm i -g pnpm
 RUN pnpm install
 RUN pnpm run build
-
 EXPOSE 8080
 
-CMD ["PORT=8080", "pnpm", "start"]
+CMD ["pnpm", "start"]
