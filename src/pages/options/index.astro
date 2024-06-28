@@ -68,7 +68,9 @@ import { Icon } from 'astro-icon/components';
         <div class="border-b-[1px] border-b-[--border-color]"></div>
     </div>
     <script>
+        //helper script so I don't have to repeat myself (located at: src/ts/settings.ts)
         import { setTheme, setProxy, setTransport } from "@scripts/settings.ts";
+        //fudge the types so TS doesn't complain like a little bitch
         declare global {
             interface Window {
                 setTheme: any;

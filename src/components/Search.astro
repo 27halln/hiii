@@ -1,6 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
+const { link } = Astro.props;
+import FrameManager from '@components/FrameManager.astro';
 ---
+<FrameManager />
 <div class="flex grow flex-row justify-left items-center">
     <a href="/" class="ml-0 inline no-underline mx-[20px] text-[20px] cursor-pointer">
         <svg class="w-[35px] h-[35px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365.37 365.37"><defs>    <style>       .cls-1{    fill:none;    stroke-width:18px;}  .cls-1, .cls-2 {    stroke: var(--accent);    stroke-miterlimit:10;} .cls-2 {    fill: var(--accent);    stroke-width:5px;}    </style>  </defs><circle class="cls-1" cx="182.68" cy="182.68" r="173.68"></circle><path class="cls-2" d="M210.41,66.38A115.27,115.27,0,0,1,70.52,248.19,134,134,0,1,0,210.41,66.38Z" transform="translate(-17.32 -17.32)"></path></svg>
@@ -9,25 +12,49 @@ import { Icon } from 'astro-icon/components';
     <button class="bg-transparent submit border-none p-[10px] cursor-pointer text-[--accent]" id="form-submit" form="search-form">
         <Icon name="fa-solid:search" />
     </button>
+    <current-url data-link={link} /> 
     <script>
+        //simple script I wrote so I don't have to repeat my self (located at: src/ts/serviceWorker.ts)
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
+        //fudge the types slightly
         declare var __uv$config: any;
-        declare var search: any; 
+        declare var search: any;
+        //initially this is null but it gets defined almost immediately
+        let link: any = null;
+        //sets the style of the iframe and enables the little panel at the top
         function prox(url: string) {
-            const iframe = document.getElementById("iframe") as HTMLIFrameElement 
+            const iframe = document.getElementById("iframe") as HTMLIFrameElement
+            const frameManager = document.getElementById("framemanager") as HTMLElement;
+            frameManager.classList.remove("hidden");
             iframe.classList.remove("hidden");
             iframe.src = url || "/load";
             if (!iframe) {
                 return; 
             }
         }
+        //we define a custom element here to set link to the params from the frontmatter
+        class CurrentUrl extends HTMLElement {
+            constructor() {
+                super();
+                link = this.dataset.link;
+            }
+        }
+        customElements.define("current-url", CurrentUrl);
+        //define all of our events and if there is a link proxy it and set the history to /
         document.addEventListener("astro:page-load", function () {
+            //this is in a try {} catch {} as to not pollute the console with errors
+            //it will error due to this running on every page and not just this one
             try {
+                if (link) {
+                    initServiceWorker().then(() => {
+                        prox(__uv$config.prefix + link);
+                        history.pushState({}, "", "/");
+                    })
+                }
                 const formInput = document.getElementById("form-input") as HTMLInputElement;
                 document.getElementById("form-submit")?.addEventListener("click", function () {
                     initServiceWorker().then(() => {
                         const iframe = document.getElementById("iframe") as HTMLIFrameElement;
-                        iframe.src = "/load";
                         if (!iframe) {
                             return;
                         }
@@ -38,7 +65,6 @@ import { Icon } from 'astro-icon/components';
                     if (event.key === "Enter") {
                         initServiceWorker().then(() => {
                             const iframe = document.getElementById("iframe") as HTMLIFrameElement;
-                            iframe.src = "/load";
                             if (!iframe) {
                                 return;
                             }

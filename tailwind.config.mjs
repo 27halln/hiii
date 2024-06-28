@@ -4,5 +4,10 @@ export default {
     theme: {
         extend: {}
     },
-    plugins: []
+    plugins: [],
+    variants: {
+        extend: {
+            display: ["group-hover"]
+        }
+    }
 };

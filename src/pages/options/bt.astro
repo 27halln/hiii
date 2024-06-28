@@ -33,7 +33,9 @@ import { Icon } from 'astro-icon/components';
         <div class="border-b-[1px] border-b-[--border-color]"></div>
     </div>
     <script>
+        //function I have written so I don't repeat shit tons of code (located in src/ts/settings.ts)
         import { changeTitle, changeFavicon } from "@scripts/settings.ts";
+        //this once again allows me to fudge the types so TS doesn't complain
         declare global {
             interface Window {
                 changeTitle: any;

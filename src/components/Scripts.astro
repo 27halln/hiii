@@ -1,4 +1,5 @@
 <script>
+    //This allows me to fudge the types a little bit
     declare var BareMux: any;
     declare var EpxMod: any;
     declare global {
@@ -6,7 +7,9 @@
             loadProxyScripts: any;
             setTransport: any;
         }
-    } 
+    }
+    //load all of the scripts required to use uv/rh (this is not loaded by default due to the size)
+    //Usage: await window.loadProxyScripts or window.loadProxyScript.then(() => {})
     window.loadProxyScripts = function() {
         return new Promise<void>((resolve) => {
             const epoxyScript = document.createElement('script');
@@ -34,6 +37,8 @@
             search.defer = true;
             document.body.appendChild(search);
             const checkScripts = setInterval(() => {
+                //If both of these aren't defined this will repeat until they are
+                //this allows use to wait for all of the scripts to be ready *before* we setup the serviceworker
                 if (typeof EpxMod !== 'undefined' && typeof BareMux !== 'undefined') {
                     clearInterval(checkScripts);
                     resolve();
@@ -41,6 +46,8 @@
             }, 100);
         })
     }
+    //function to set a transport between the *defined* transports
+    //Usage: await window.setTransport("epoxy") or window.setTransport("epoxy").then(() => {})
     window.setTransport = function(transport: string) {
         return new Promise<void>((resolve) => {
             localStorage.setItem("incog||transport", transport);
@@ -53,5 +60,6 @@
             }
             resolve();
         })
+        //the promise here is to really make everything look the same even though most of this is synchronous code
     }
 </script>

@@ -4,9 +4,11 @@ function initServiceWorker() {
             navigator.serviceWorker.ready.then(async () => {
                 //await registerRemoteListener(sw.active!)
                 console.log('Service Worker Ready');
-                //@ts-ignore
+                //@ts-ignore these are a fucking thing
+                //wait for the scripts to load
                 await window.loadProxyScripts();
-                //@ts-ignore
+                //@ts-ignore these fucking exist
+                //make sure the transport is set before continuing
                 await window.setTransport(localStorage.getItem('incog||transport'));
                 resolve();
             });
