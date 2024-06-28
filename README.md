@@ -183,3 +183,15 @@ docker compose up -d
 ```
 To start it in the background
 
+---
+
+## Environment
+
+- There are a couple of environment variables for incognito. Most of the time, the defaults are fine, but there are instances where you may not want certain options enabled or certain things running.
+
+| Variable               | Description                                                                                              | Default |
+|------------------------|----------------------------------------------------------------------------------------------------------|---------|
+| `MASQR`                | Enables (`true`)/Disables (`false`) Masqr (most people don't want this)                                   | `false` |
+| `BARE_SERVER_ENABLED`  | Enables (`true`)/Disables (`false`) the integrated bare server. Use this if you already have a server (e.g., reverse proxy) or don't want users accessing it. | `true`  |
+| `BARE_SERVER_OPTION`   | Enables (`true`)/Disables (`false`) the option to use a bare server in the frontend. ***THIS IS A BUILD TIME ONLY VARIABLE*** | `true`  |
+
