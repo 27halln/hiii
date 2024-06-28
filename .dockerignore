@@ -3,3 +3,15 @@ node_modules/
 npm-debug.log
 yarn-error.log
 .github/
+.env
+.env.example
+dist/
+.git/
+.astro/
+~/
+.gitignore
+biome.json
+docker-compose.yml
+Dockerfile
+pnpm-lock.yaml
+README.md

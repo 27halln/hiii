@@ -9,6 +9,8 @@ import Fastify from 'fastify';
 //@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
+import dotenvx from '@dotenvx/dotenvx';
+dotenvx.config();
 
 const app = Fastify({ logger: false, serverFactory: serverFactory });
 
@@ -33,8 +35,8 @@ await app.register(fastifyStatic, {
 });
 await app.register(fastifyMiddie);
 app.use(ssrHandler);
+const port: number = parseInt(process.env.PORT);
+console.log(chalk.green(`Server listening on ${chalk.bold('http://localhost:' + port)}`));
+console.log(chalk.magenta(`Server also listening on ${chalk.bold('http://0.0.0.0:' + port)}`));
 
-console.log(chalk.green(`Server listening on ${chalk.bold('http://localhost:8080')}`));
-console.log(chalk.magenta(`Server also listening on ${chalk.bold('http://0.0.0.0:8080')}`));
-
-app.listen({ port: 8080, host: '0.0.0.0' });
+app.listen({ port: port, host: '0.0.0.0' });

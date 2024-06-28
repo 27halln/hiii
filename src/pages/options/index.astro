@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import { BARE_SERVER_OPTION } from "astro:env/client"
 ---
 
 <Layout title="Options">
@@ -54,17 +55,19 @@ import { Icon } from 'astro-icon/components';
                 </li>
             </div>
         </div>
-        <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
-            <p class="mb-[10px] text-[18px] font-medium"> Transport </p>
-            <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
-                <li id="epoxy" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="transport('epoxy')">
-                    Epoxy
-                </li>
-                <li id="bare" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="transport('bare')">
-                    Bare Server
-                </li>
+        {BARE_SERVER_OPTION &&
+            <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
+                <p class="mb-[10px] text-[18px] font-medium"> Transport </p>
+                <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
+                    <li id="epoxy" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="transport('epoxy')">
+                        Epoxy
+                    </li>
+                    <li id="bare" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="transport('bare')">
+                        Bare Server
+                    </li>
+                </div>
             </div>
-        </div>
+        }
         <div class="border-b-[1px] border-b-[--border-color]"></div>
     </div>
     <script>

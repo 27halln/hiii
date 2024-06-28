@@ -7,7 +7,7 @@ import playformCompress from '@playform/compress';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // https://astro.build/config
@@ -30,6 +30,13 @@ export default defineConfig({
     adapter: node({
         mode: 'middleware'
     }),
+    experimental: {
+        env: {
+            schema: {
+                BARE_SERVER_OPTION: envField.boolean({ context: "client", access: "public", default: false }),
+            }
+        }
+    },
     vite: {
         plugins: [
             viteStaticCopy({
