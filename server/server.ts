@@ -6,6 +6,7 @@ import fastifyStatic from '@fastify/static';
 import { masqr } from '@rubynetwork/corlink-fastify';
 import chalk from 'chalk';
 import Fastify from 'fastify';
+//@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
 
