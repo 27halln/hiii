@@ -85,12 +85,22 @@ git clone https://github.com/titaniumnetwork-dev/incognito && cd incognito
 npm i
 ```
 
-3. Build the frontend:
+3. Create a .env file
+```bash
+cp .env.example .env
+```
+
+4. Modify the .env file to you liking (docs [here](#environment))
+```
+nano .env
+```
+
+5. Build the frontend:
 ```bash
 npm run build
 ```
 
-4. Start the server
+6. Start the server
 ```bash
 npm start
 ```
@@ -116,14 +126,25 @@ Prerequisites:
 git clone https://github.com/titaniumnetwork/incognito && cd incognito
 ```
 
-2. Build the docker image:
+2. Create an .env file:
 ```bash
-docker build -t incog:latest
+cp .env.example .env
 ```
 
-3. Run the docker images:
+3. Modify the .env file to your liking (docs [here](#environment))
 ```bash
-docker run incog:latest
+nano .env
+```
+
+4. Build the docker image:
+```bash
+docker build --build-arg BARE_SERVER_OPTION=true -t incog:latest
+```
+For info on the build arg check [here](#environment)
+
+5. Run the docker images:
+```bash
+docker run --env-file ./.env incog:latest
 ```
 
 #### Docker Compose
@@ -137,12 +158,22 @@ Prerequisites:
 git clone https://github.com/titaniumnetwork-dev/incognito
 ```
 
-2. Build the docker image:
+2. Create an .env file:
+```bash
+cp .env.example .env
+```
+
+3. Modify the .env file to your liking (docs on that [here](#environment)]
+```bash
+nano .env
+```
+
+4. Build the docker image:
 ```bash
 docker compose build
 ```
 
-3. Run the docker image:
+5. Run the docker image:
 ```bash
 docker compose up
 ```

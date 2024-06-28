@@ -8,13 +8,7 @@ services:
       dockerfile: Dockerfile
     container_name: incognito
     restart: unless-stopped
-    environment:
-      #enable/disable masqr
-      - MASQR=false
-      #enable/disable the integrated bare server
-      - BARE_SERVER_ENABLED=false
-      #enable/disable the bare server option on the frontend (IF CHANGED THIS WILL HAVE TO BE REBUILT)
-      - BARE_SERVER_OPTION=false
+    env_file: '.env'
     ports:
       # The ports work like this: Host:Container (DO NOT MODIFY THE CONTAINER PORT)
       - "8081:8080"
