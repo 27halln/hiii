@@ -4,6 +4,7 @@ npm-debug.log
 yarn-error.log
 .github/
 .env.example
+.env
 dist/
 .git/
 .astro/
@@ -12,5 +13,4 @@ dist/
 biome.json
 docker-compose.yml
 Dockerfile
-pnpm-lock.yaml
 README.md

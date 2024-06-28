@@ -193,5 +193,6 @@ To start it in the background
 |------------------------|----------------------------------------------------------------------------------------------------------|---------|
 | `MASQR`                | Enables (`true`)/Disables (`false`) Masqr (most people don't want this)                                   | `false` |
 | `BARE_SERVER_ENABLED`  | Enables (`true`)/Disables (`false`) the integrated bare server. Use this if you already have a server (e.g., reverse proxy) or don't want users accessing it. | `true`  |
+| `PORT`                 | The port that the server listens on ***IGNORED IN THE DOCKER ENVIRONMENTS***                              | `8080` |
 | `BARE_SERVER_OPTION`   | Enables (`true`)/Disables (`false`) the option to use a bare server in the frontend. ***THIS IS A BUILD TIME ONLY VARIABLE*** | `true`  |
 

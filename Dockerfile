@@ -11,4 +11,4 @@ RUN pnpm run build
 
 EXPOSE 8080
 
-CMD ["pnpm", "start"]
+CMD ["PORT=8080", "pnpm", "start"]
