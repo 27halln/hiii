@@ -22,8 +22,8 @@ await app.register(fastifyCookie, {
 if (process.env.MASQR === "true") {
     await app.register(masqr, {
         deniedFilePath: fileURLToPath(new URL('./denied.html', import.meta.url)),
-        unlockedPaths: ['/bare/'],
-        whiteListedURLs: ['https://maindomain.com', 'https://subdomain.maindomain.com'],
+        unlockedPaths: ['/bare/', '/wisp/'],
+        whiteListedURLs: [],
         masqrUrl: 'https://corlink.example.com/validate?license=',
         builtinCookieParser: false
     });
