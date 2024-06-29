@@ -41,6 +41,7 @@
     "fastify": "^4.28.0",
     "is-docker": "^3.0.0",
     "rammerhead": "https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz",
+    "sharp": "^0.33.4",
     "tailwindcss": "^3.4.4",
     "tsx": "^4.15.7",
     "typescript": "^5.4.5",

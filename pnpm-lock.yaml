@@ -89,6 +89,9 @@ importers:
       rammerhead:
         specifier: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz
         version: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz(bufferutil@4.0.8)(utf-8-validate@6.0.4)
+      sharp:
+        specifier: ^0.33.4
+        version: 0.33.4
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.4
