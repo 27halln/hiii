@@ -19,7 +19,7 @@ await app.register(fastifyCookie, {
     secret: process.env.COOKIE_SECRET || 'e',
     parseOptions: {}
 });
-if (process.env.MASQR === "true") {
+if (process.env.MASQR === 'true') {
     await app.register(masqr, {
         deniedFilePath: fileURLToPath(new URL('./denied.html', import.meta.url)),
         unlockedPaths: ['/bare/', '/wisp/'],
@@ -39,8 +39,7 @@ app.use(ssrHandler);
 let port: number;
 if (isDocker()) {
     port = 8080;
-} 
-else {
+} else {
     port = parseInt(process.env.PORT as string);
 }
 console.log(chalk.green(`Server listening on ${chalk.bold('http://localhost:' + port)}`));

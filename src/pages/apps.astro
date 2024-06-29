@@ -1,9 +1,11 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
+import Layout from '@layouts/Layout.astro';
 import type { ImageMetadata } from 'astro';
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/apps/*.{jpeg,jpg,png,gif}')
+import { Icon } from 'astro-icon/components';
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/apps/*.{jpeg,jpg,png,gif}'
+);
 ---
 
 <Layout title="Apps">
