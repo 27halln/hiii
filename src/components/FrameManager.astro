@@ -5,10 +5,10 @@ import { Icon } from 'astro-icon/components';
     <div class="transition-all duration-200 ease-linear invisible group-hover:visible bg-[--background] group-hover:h-[51.4px] w-full px-[7px] py-[10px] flex items-center border-l-[1px] border-r-[1px] border-b-[1px] border-[--border-color] h-[15px] shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-b-[5px]">
         <img class="w-[20px] h-[20px] mx-[5px]" src="https://incog.nebula.christmas/index.svg" />
         <input id="title" class="bg-transparent border-none mx-[10px] flex-grow text-[--text-color]" disabled="disabled"></input>
-        <button onclick="createLink()" class="mr-[5px] text-[--accent] border-none bg-transparent cursor-pointer py-[5px] px-[7px] ml-[5px] text-[22px]">
+        <button id="createlink" onclick="createLink()" class="mr-[5px] text-[--accent] border-none bg-transparent cursor-pointer py-[5px] px-[7px] ml-[5px] text-[22px]">
             <Icon name="mdi:attachment" />
         </button>
-        <button onclick="refreshIframe()" class="mr-[5px] text-[--accent] border-none bg-transparent cursor-pointer py-[5px] px-[7px] ml-[5px] text-[22px]">
+            <button onclick="refreshIframe()" class="mr-[5px] text-[--accent] border-none bg-transparent cursor-pointer py-[5px] px-[7px] ml-[5px] text-[22px]">
             <Icon name="mdi:refresh" />
         </button>
         <button onclick="exitIframe()" class="mr-[5px] text-[--accent] border-none bg-transparent cursor-pointer py-[5px] px-[7px] ml-[5px] text-[22px]">
@@ -26,6 +26,7 @@ import { Icon } from 'astro-icon/components';
             refreshIframe: any;
             setTitle: any;
             __uv: any;
+            __get$ProxyUrl: any;
         }
     }
     //same as comment above
@@ -40,27 +41,30 @@ import { Icon } from 'astro-icon/components';
     window.createLink = function() {
         const vars = defineVars();
         if (vars?.win?.__uv) {
-            console.log(vars.win.__uv.location.href);
             navigator.clipboard.writeText(new URL('./?link=' + encodeURIComponent(__uv$config.encodeUrl(vars?.win?.__uv.location.href)), location.href).href);
-        }
+        } 
     }
     window.exitIframe = function() {
         const vars = defineVars();
-        if (vars?.win?.__uv) {
+        if (vars?.win?.__uv || vars?.win?.__get$ProxyUrl) {
             navigate("/");
         }
     }
     window.refreshIframe = function() {
         const vars = defineVars();
-        if (vars?.win?.__uv) {
+        if (vars?.win?.__uv || vars?.win?.__get$ProxyUrl) {
             vars?.win?.location.reload();
         }
     }
     window.setTitle = function() {
         const vars = defineVars();
-        if (vars?.win && vars?.win?.__uv) {
+        if (vars?.win && vars?.win?.__uv || vars?.win?.__get$ProxyUrl) {
             //@ts-ignore this is really complicated and I am not in the mood to deal with it
             document.getElementById("title").value = Object.getOwnPropertyDescriptor(Document.prototype, 'title').get.call(vars?.win.document);
+        }
+        if (localStorage.getItem("incog||proxy") === "rh") {
+            const linkElement = document.getElementById("createlink") as HTMLButtonElement;
+            linkElement.classList.add("hidden");
         }
     }
 </script>

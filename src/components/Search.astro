@@ -21,6 +21,7 @@ import FrameManager from '@components/FrameManager.astro';
     <script>
         //simple script I wrote so I don't have to repeat my self (located at: src/ts/serviceWorker.ts)
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
+        import { RammerheadEncode } from "@scripts/rammerhead.ts";
         //fudge the types slightly
         declare var __uv$config: any;
         declare var search: any;
@@ -30,7 +31,13 @@ import FrameManager from '@components/FrameManager.astro';
             phrase: string;
         };
         //sets the style of the iframe and enables the little panel at the top
-        function prox(url: string) {
+        async function prox(term: string) {
+            let url;
+            if (localStorage.getItem("incog||proxy") === "uv") {
+                url = __uv$config.prefix + __uv$config.encodeUrl(search(term, localStorage.getItem("incog||search")))
+            } else if (localStorage.getItem("incog||proxy") === "rh") {
+                url = await RammerheadEncode(search(term, localStorage.getItem("incog||search")))
+            }
             const iframe = document.getElementById("iframe") as HTMLIFrameElement
             const frameManager = document.getElementById("framemanager") as HTMLElement;
             frameManager.classList.remove("hidden");
@@ -66,7 +73,7 @@ import FrameManager from '@components/FrameManager.astro';
                         if (!iframe) {
                             return;
                         }
-                        prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search") as string)))
+                        prox(formInput?.value)
                     })
                 })
                 document.getElementById("form-input")?.addEventListener("keypress", function (event: any) {
@@ -76,7 +83,7 @@ import FrameManager from '@components/FrameManager.astro';
                             if (!iframe) {
                                 return;
                             }
-                            prox(__uv$config.prefix + __uv$config.encodeUrl(search(formInput?.value, localStorage.getItem("incog||search"))))
+                            prox(formInput?.value)
                         })
                     }
                 })
@@ -108,7 +115,7 @@ import FrameManager from '@components/FrameManager.astro';
                                     span.innerText = results.phrase;
                                     span.addEventListener("click", function() {
                                         initServiceWorker().then(() => {
-                                            prox(__uv$config.prefix + __uv$config.encodeUrl(search(results.phrase, localStorage.getItem("incog||search")))) 
+                                            prox(results.phrase) 
                                         })
                                     })
                                     searchSuggestions.appendChild(span);
