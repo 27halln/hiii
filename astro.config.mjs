@@ -12,7 +12,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://incog.nebula.christmas',
+    site: process.env.SITE || "https://localhost:8080",
     integrations: [
         tailwind(),
         robotsTxt(),

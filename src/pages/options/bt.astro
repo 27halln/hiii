@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import NavMenu from "@components/MobileNav.astro";
 ---
 
 <Layout title="Options">
@@ -14,11 +15,14 @@ import { Icon } from 'astro-icon/components';
                     Options
                 </p>
             </div>
-            <div class="flex items-center justify-right">
+            <div class="items-center justify-right hidden md:flex">
                 <a href="/options/about" class="hover:underline text-[--text-color] mx-[20px] text-[14px]"> About </a>
                 <a href="/options/bt" class="hover:underline text-[--accent] mx-[20px] text-[14px]"> Browser Tab </a>
                 <a href="/options" class="hover:underline text-[--text-color] ml-[20px] text-[14px]"> General </a>
-            </div> 
+            </div>
+            <div class="flex items-center justify-right md:hidden">
+                <NavMenu options="true" page="bt" />
+            </div>
         </div>
         <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
             <p class="mb-[10px] text-[18px] font-medium"> Tab Title </p>
