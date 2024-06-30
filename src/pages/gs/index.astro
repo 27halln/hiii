@@ -3,10 +3,14 @@ import { Image } from 'astro:assets';
 import Layout from '@layouts/Layout.astro';
 import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
+import { GAMES_LINK } from 'astro:env/client';
 const images = import.meta.glob<{ default: ImageMetadata }>(
 '/src/assets/games/*.{jpeg,jpg,png,gif,webp}'
 );
 let games = await import('src/assets/games.json');
+if (!GAMES_LINK) {
+    return Astro.redirect('/');
+}
 ---
 
 <Layout title="">

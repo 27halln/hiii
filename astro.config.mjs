@@ -36,7 +36,12 @@ export default defineConfig({
                 BARE_SERVER_OPTION: envField.boolean({
                     context: 'client',
                     access: 'public',
-                    default: false
+                    default: true
+                }),
+                GAMES_LINK: envField.boolean({
+                    context: 'client',
+                    access: 'public',
+                    default: true 
                 })
             }
         }
