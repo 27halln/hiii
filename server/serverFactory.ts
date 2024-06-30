@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import { createBareServer } from '@tomphttp/bare-server-node';
-import { routeRhRequest, routeRhUpgrade, shouldRouteRh } from './rammerhead';
 import wisp from 'wisp-server-node';
+import { routeRhRequest, routeRhUpgrade, shouldRouteRh } from './rammerhead';
 
 function initBareServer() {
     if (process.env.BARE_SERVER_ENABLED === 'true') {
@@ -16,23 +16,24 @@ const serverFactory = (handler: any) => {
     return createServer()
         .on('request', (req: any, res: any) => {
             if (process.env.BARE_SERVER_ENABLED === 'true') {
-                if (bare?.shouldRoute(req)) { bare?.routeRequest(req, res) }
+                if (bare?.shouldRoute(req)) {
+                    bare?.routeRequest(req, res);
+                }
             }
             if (shouldRouteRh(req)) {
                 routeRhRequest(req, res);
-            }
-            else {
-                handler(req, res)
+            } else {
+                handler(req, res);
             }
         })
         .on('upgrade', (req: any, socket: any, head: any) => {
             if (process.env.BARE_SERVER_ENABLED === 'true') {
                 if (bare?.shouldRoute(req)) {
-                    bare?.routeUpgrade(req, socket, head)
+                    bare?.routeUpgrade(req, socket, head);
                 }
             }
             if (shouldRouteRh(req)) {
-                routeRhUpgrade(req, socket, head)
+                routeRhUpgrade(req, socket, head);
             }
             if (req.url?.endsWith('/wisp/')) {
                 wisp.routeRequest(req, socket, head);

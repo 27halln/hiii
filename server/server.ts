@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import dotenvx from '@dotenvx/dotenvx';
 import fastifyCompress from '@fastify/compress';
 import fastifyCookie from '@fastify/cookie';
+import fastifyHttpProxy from '@fastify/http-proxy';
 import fastifyMiddie from '@fastify/middie';
 import fastifyStatic from '@fastify/static';
 import { masqr } from '@rubynetwork/corlink-fastify';
@@ -11,7 +12,6 @@ import isDocker from 'is-docker';
 //@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
-import fastifyHttpProxy from '@fastify/http-proxy';
 dotenvx.config();
 
 const app = Fastify({ logger: false, serverFactory: serverFactory });
@@ -39,8 +39,8 @@ await app.register(fastifyMiddie);
 await app.register(fastifyHttpProxy, {
     upstream: 'https://rawcdn.githack.com/ruby-network/ruby-assets/main/',
     prefix: '/gms/',
-    http2: false 
-})
+    http2: false
+});
 app.use(ssrHandler);
 let port: number;
 if (isDocker()) {

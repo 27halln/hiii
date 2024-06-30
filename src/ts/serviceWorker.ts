@@ -1,6 +1,6 @@
 function initServiceWorker() {
     return new Promise<void>((resolve) => {
-        if (localStorage.getItem("incog||proxy") === "uv") {
+        if (localStorage.getItem('incog||proxy') === 'uv') {
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.ready.then(async () => {
                     //await registerRemoteListener(sw.active!)
@@ -15,12 +15,11 @@ function initServiceWorker() {
                 });
                 navigator.serviceWorker.register('/sw.js', { scope: '/' });
             }
-        } 
-        else {
+        } else {
             //@ts-ignore
             window.loadProxyScripts().then(() => {
                 resolve();
-            })
+            });
         }
     });
 }

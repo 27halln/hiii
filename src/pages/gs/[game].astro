@@ -3,14 +3,13 @@ const { game } = Astro.params;
 const proxy = Astro.url.searchParams.get('py') || null;
 const url = Astro.url.searchParams.get('url') || null;
 const baseFile = Astro.url.searchParams.get('bf') || null;
-import Layout from "@layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
 import { GAMES_LINK } from 'astro:env/client';
+import Layout from '@layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 function decode(val: string) {
     try {
-        return atob(val)
-        } 
-    catch(_) {}
+        return atob(val);
+    } catch (_) {}
 }
 if (!GAMES_LINK) {
     return Astro.redirect('/');

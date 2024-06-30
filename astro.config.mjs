@@ -12,7 +12,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // https://astro.build/config
 export default defineConfig({
-    site: process.env.SITE || "https://localhost:8080",
+    site: process.env.SITE || 'https://localhost:8080',
     integrations: [
         tailwind(),
         robotsTxt(),
@@ -41,7 +41,7 @@ export default defineConfig({
                 GAMES_LINK: envField.boolean({
                     context: 'client',
                     access: 'public',
-                    default: true 
+                    default: true
                 })
             }
         }
