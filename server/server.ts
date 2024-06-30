@@ -11,6 +11,7 @@ import isDocker from 'is-docker';
 //@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
+import fastifyHttpProxy from '@fastify/http-proxy';
 dotenvx.config();
 
 const app = Fastify({ logger: false, serverFactory: serverFactory });
@@ -35,6 +36,11 @@ await app.register(fastifyStatic, {
     root: fileURLToPath(new URL('../dist/client', import.meta.url))
 });
 await app.register(fastifyMiddie);
+await app.register(fastifyHttpProxy, {
+    upstream: 'https://rawcdn.githack.com/ruby-network/ruby-assets/main/',
+    prefix: '/gms/',
+    http2: false 
+})
 app.use(ssrHandler);
 let port: number;
 if (isDocker()) {

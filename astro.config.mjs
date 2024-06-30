@@ -1,4 +1,3 @@
-import { options } from '@astrojs/check/dist/options';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';

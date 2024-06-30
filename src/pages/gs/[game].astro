@@ -14,16 +14,16 @@ import { Icon } from "astro-icon/components";
                     <Icon name="mdi:chevron-left" />
                 </a>
                 <p class="text-[16px] grow font-medium text-[--accent]">
-                    { atob(game) }
+                    { atob(game as string) }
                 </p>
                 <button onclick="fullScreenGame()" class="self-right text-[30px] text-[--accent]">
                     <Icon name="mdi:fullscreen" />
                 </button>
             </div>
         </div>
-        <proxy-url data-url={atob(url)} data-proxy={proxy} class="hidden" />
+        <proxy-url data-url={atob(url as string)} data-proxy={proxy} class="hidden" />
         {proxy !== "true" ?
-            <iframe id="gameIframe" class="w-full h-full" src={`/gms/${atob(game).toLowerCase().replace(/\s/g, '-')}/${atob(baseFile)}`} />
+            <iframe id="gameIframe" class="w-full h-full" src={`/gms/${atob(game as string).toLowerCase().replace(/\s/g, '-')}/${atob(baseFile as string)}`} />
             :
             <iframe id="gameIframe" class="w-full h-full" src="/load" />
         }
@@ -32,7 +32,6 @@ import { Icon } from "astro-icon/components";
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
         import { RammerheadEncode } from "@scripts/rammerhead.ts";
         declare var __uv$config: any;
-        declare var search: any;
         declare global {
             interface Window {
                 fullScreenGame: any;
