@@ -13,27 +13,27 @@
     window.loadProxyScripts = function() {
         return new Promise<void>((resolve) => {
             const epoxyScript = document.createElement('script');
-            epoxyScript.src = 'epoxy/index.js';
+            epoxyScript.src = '/epoxy/index.js';
             epoxyScript.defer = true;
             document.body.appendChild(epoxyScript);
             const bareScript = document.createElement('script');
-            bareScript.src = 'transports/bareTransport.js';
+            bareScript.src = '/transports/bareTransport.js';
             document.body.appendChild(bareScript);
             bareScript.defer = true;
             const uvBundle = document.createElement('script');
-            uvBundle.src = 'uv/uv.bundle.js';
+            uvBundle.src = '/uv/uv.bundle.js';
             uvBundle.defer = true;
             document.body.appendChild(uvBundle);
             const uvConfig = document.createElement('script');
-            uvConfig.src = 'uv/uv.config.js';
+            uvConfig.src = '/uv/uv.config.js';
             uvConfig.defer = true;
             document.body.appendChild(uvConfig);
             const bareMux = document.createElement('script');
-            bareMux.src = 'baremux/bare.cjs';
+            bareMux.src = '/baremux/bare.cjs';
             bareMux.defer = true;
             document.body.appendChild(bareMux);
             const search = document.createElement('script');
-            search.src = "search.js";
+            search.src = "/search.js";
             search.defer = true;
             document.body.appendChild(search);
             const checkScripts = setInterval(() => {

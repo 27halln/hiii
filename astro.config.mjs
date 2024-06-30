@@ -1,3 +1,4 @@
+import { options } from '@astrojs/check/dist/options';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -76,6 +77,13 @@ export default defineConfig({
                     changeOrigin: true,
                     ws: true,
                     rewrite: (path) => path.replace(/^\/bare\//, '')
+                },
+                '/gms/': {
+                    target: 'https://rawcdn.githack.com/ruby-network/ruby-assets/main/',
+                    changeOrigin: true,
+                    ws: true,
+                    secure: false,
+                    rewrite: (path) => path.replace(/^\/gms\//, '')
                 }
             }
         }
