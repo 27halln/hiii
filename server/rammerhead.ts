@@ -1,4 +1,4 @@
-import createRammerhead from 'rammerhead/src/server/index.js';
+import createRammerhead from '@rubynetwork/rammerhead/src/server/index.js'
 const rh = createRammerhead();
 const rammerheadScopes = [
     '/rammerhead.js',

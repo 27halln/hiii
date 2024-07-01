@@ -59,6 +59,9 @@ importers:
       '@rubynetwork/corlink-fastify':
         specifier: ^2.0.1
         version: 2.0.1
+      '@rubynetwork/rammerhead':
+        specifier: 1.2.41-ruby.2
+        version: 1.2.41-ruby.2(bufferutil@4.0.8)(utf-8-validate@6.0.4)
       '@titaniumnetwork-dev/ultraviolet':
         specifier: ^3.1.2
         version: 3.1.2
@@ -92,9 +95,6 @@ importers:
       is-docker:
         specifier: ^3.0.0
         version: 3.0.0
-      rammerhead:
-        specifier: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz
-        version: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz(bufferutil@4.0.8)(utf-8-validate@6.0.4)
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
@@ -1370,6 +1370,9 @@ packages:
 
   '@rubynetwork/corlink-fastify@2.0.1':
     resolution: {integrity: sha512-MMzfjlB2tznDQM2tBh8jmzOcArpal5nX1XeCQ6Awr7jPmnq3I5h3MN5xq4G4e36HVUkbf1f6ii6/aS8Y1gejwg==}
+
+  '@rubynetwork/rammerhead@1.2.41-ruby.2':
+    resolution: {integrity: sha512-LnYFIXfb8Y8uRwWJyWEbiciiEWR/s6w8cj7NSoQnllZW7HPZB2HGUBEmJrCX2EWpqLPpLscofgY+1zKEGWPw3w==}
 
   '@shikijs/core@1.10.0':
     resolution: {integrity: sha512-BZcr6FCmPfP6TXaekvujZcnkFmJHZ/Yglu97r/9VjzVndQA56/F4WjUKtJRQUnK59Wi7p/UTAOekMfCJv7jnYg==}
@@ -3606,10 +3609,6 @@ packages:
 
   quick-format-unescaped@4.0.4:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
-
-  rammerhead@https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz:
-    resolution: {tarball: https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz}
-    version: 1.2.41-holy.5
 
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
@@ -6068,6 +6067,23 @@ snapshots:
       zod: 3.23.8
     transitivePeerDependencies:
       - supports-color
+
+  '@rubynetwork/rammerhead@1.2.41-ruby.2(bufferutil@4.0.8)(utf-8-validate@6.0.4)':
+    dependencies:
+      async-exit-hook: 2.0.1
+      cookie: 0.5.0
+      fastify: 4.28.1
+      keyv-lru-files: https://codeload.github.com/holy-unblocker/keyv-lru-files/tar.gz/dceb102630357eda76317f9005905bbc5e6521e7
+      mime: 2.6.0
+      testcafe-hammerhead: 24.5.18
+      uglify-js: 3.18.0
+      uuid: 8.3.2
+      ws: 8.17.1(bufferutil@4.0.8)(utf-8-validate@6.0.4)
+    transitivePeerDependencies:
+      - bluebird
+      - bufferutil
+      - supports-color
+      - utf-8-validate
 
   '@shikijs/core@1.10.0': {}
 
@@ -8674,22 +8690,6 @@ snapshots:
   queue-microtask@1.2.3: {}
 
   quick-format-unescaped@4.0.4: {}
-
-  rammerhead@https://github.com/NebulaServices/rammerhead/releases/download/rammerhead-1.2.41-nebula.8/rammerhead-1.2.41-nebula.7.tgz(bufferutil@4.0.8)(utf-8-validate@6.0.4):
-    dependencies:
-      async-exit-hook: 2.0.1
-      cookie: 0.5.0
-      keyv-lru-files: https://codeload.github.com/holy-unblocker/keyv-lru-files/tar.gz/dceb102630357eda76317f9005905bbc5e6521e7
-      mime: 2.6.0
-      testcafe-hammerhead: 24.5.18
-      uglify-js: 3.18.0
-      uuid: 8.3.2
-      ws: 8.17.1(bufferutil@4.0.8)(utf-8-validate@6.0.4)
-    transitivePeerDependencies:
-      - bluebird
-      - bufferutil
-      - supports-color
-      - utf-8-validate
 
   range-parser@1.2.1: {}
 

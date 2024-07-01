@@ -1,10 +1,9 @@
 ---
-import { BARE_SERVER_OPTION } from 'astro:env/client';
+import { BARE_SERVER_OPTION, RAMMERHEAD_OPTION } from 'astro:env/client';
 import NavMenu from '@components/MobileNav.astro';
 import Layout from '@layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 ---
-
 <Layout title="Options">
     <div class="w-full h-full px-[15%]">
         <div class="h-[80px] w-full p-0 flex self-center transition duration-200">
@@ -48,17 +47,19 @@ import { Icon } from 'astro-icon/components';
                 </li>
             </div>
         </div>
-        <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
-            <p class="mb-[10px] text-[18px] font-medium"> Proxy </p>
-            <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
-                <li id="uv" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setProxy('uv')">
-                    Ultraviolet
-                </li>
-                <li id="rh" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setProxy('rh')">
-                    RammerHead
-                </li>
+        {RAMMERHEAD_OPTION &&
+            <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
+                <p class="mb-[10px] text-[18px] font-medium"> Proxy </p>
+                <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
+                    <li id="uv" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setProxy('uv')">
+                        Ultraviolet
+                    </li>
+                    <li id="rh" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setProxy('rh')">
+                        RammerHead
+                    </li>
+                </div>
             </div>
-        </div>
+        }
         {BARE_SERVER_OPTION &&
             <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
                 <p class="mb-[10px] text-[18px] font-medium"> Transport </p>

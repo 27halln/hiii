@@ -20,9 +20,15 @@ const serverFactory = (handler: any) => {
                     bare?.routeRequest(req, res);
                 }
             }
-            if (shouldRouteRh(req)) {
-                routeRhRequest(req, res);
-            } else {
+            if (process.env.RAMMERHEAD_SERVER_ENABLED === 'true') {
+                if (req.url.startsWith('/rammer')) {
+                    req.url = req.url.replace('/rammer', '');
+                }
+                if (shouldRouteRh(req)) {
+                    routeRhRequest(req, res);
+                } 
+            }
+            else {
                 handler(req, res);
             }
         })
@@ -32,8 +38,13 @@ const serverFactory = (handler: any) => {
                     bare?.routeUpgrade(req, socket, head);
                 }
             }
-            if (shouldRouteRh(req)) {
-                routeRhUpgrade(req, socket, head);
+            if (process.env.RAMMERHEAD_SERVER_ENABLED === 'true') {
+                if (req.url.startsWith('/rammer')) {
+                    req.url = req.url.replace('/rammer', '');
+                }
+                if (shouldRouteRh(req)) {
+                    routeRhUpgrade(req, socket, head);
+                } 
             }
             if (req.url?.endsWith('/wisp/')) {
                 wisp.routeRequest(req, socket, head);

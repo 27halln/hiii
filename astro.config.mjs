@@ -42,6 +42,11 @@ export default defineConfig({
                     context: 'client',
                     access: 'public',
                     default: true
+                }),
+                RAMMERHEAD_OPTION: envField.boolean({
+                    context: 'client',
+                    access: 'public',
+                    default: true 
                 })
             }
         }
