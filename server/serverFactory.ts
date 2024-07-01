@@ -20,11 +20,11 @@ const serverFactory = (handler: any) => {
             }
             if (bare?.shouldRoute(req)) {
                 bare?.routeRequest(req, res);
-            } 
-            else if (shouldRouteRh(req)) {
+            } else if (shouldRouteRh(req)) {
                 routeRhRequest(req, res);
-            } 
-            else { handler(req, res) }
+            } else {
+                handler(req, res);
+            }
         })
         .on('upgrade', (req: any, socket: any, head: any) => {
             if (req.url.startsWith('/rammer')) {
@@ -32,11 +32,9 @@ const serverFactory = (handler: any) => {
             }
             if (bare?.shouldRoute(req)) {
                 bare?.routeUpgrade(req, socket, head);
-            } 
-            else if (shouldRouteRh(req)) {
+            } else if (shouldRouteRh(req)) {
                 routeRhUpgrade(req, socket, head);
-            }
-            else if (req.url?.endsWith('/wisp/')) {
+            } else if (req.url?.endsWith('/wisp/')) {
                 wisp.routeRequest(req, socket, head);
             }
         });
