@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "tsx server/server.ts",
+    "start": "dotenvx run -- tsx server/server.ts",
     "build": "astro check && astro build",
     "bstart": "npm run build && npm run start",
     "preview": "astro preview",
@@ -18,7 +18,7 @@
     "@astrojs/node": "^8.3.2",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
-    "@dotenvx/dotenvx": "^1.1.0",
+    "@dotenvx/dotenvx": "^1.5.0",
     "@fastify/compress": "^7.0.3",
     "@fastify/cookie": "^9.3.1",
     "@fastify/http-proxy": "^9.5.0",

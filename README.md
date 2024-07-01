@@ -205,4 +205,4 @@ To start it in the background
 | `SITE` | Your websites domain (eg: https://example.com) | `http://localhost:8080` |
 | `BARE_SERVER_OPTION`   | Enables (`true`)/Disables (`false`) the option to use a bare server in the frontend. ***THIS IS A BUILD TIME ONLY VARIABLE*** | `true`  |
 | `GAMES_LINK` | Enables (`true`)/Disables (`false`) access to the games page ***BUILD TIME ONLY*** | `true` |
-| `RAMMERHEAD_SERVER_OPTION` | Enabled (`true`)/Disables (`false`) the option to use Rammerhead in the frontend. ***BUILD TIME ONLY*** | `true` |
+| `RAMMERHEAD_OPTION` | Enabled (`true`)/Disables (`false`) the option to use Rammerhead in the frontend. ***BUILD TIME ONLY*** | `true` |

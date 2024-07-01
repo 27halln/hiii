@@ -15,38 +15,28 @@ const bare = initBareServer();
 const serverFactory = (handler: any) => {
     return createServer()
         .on('request', (req: any, res: any) => {
-            if (process.env.BARE_SERVER_ENABLED === 'true') {
-                if (bare?.shouldRoute(req)) {
-                    bare?.routeRequest(req, res);
-                }
+            if (req.url.startsWith('/rammer')) {
+                req.url = req.url.replace('/rammer', '');
             }
-            if (process.env.RAMMERHEAD_SERVER_ENABLED === 'true') {
-                if (req.url.startsWith('/rammer')) {
-                    req.url = req.url.replace('/rammer', '');
-                }
-                if (shouldRouteRh(req)) {
-                    routeRhRequest(req, res);
-                } 
-            }
-            else {
-                handler(req, res);
-            }
+            if (bare?.shouldRoute(req)) {
+                bare?.routeRequest(req, res);
+            } 
+            else if (shouldRouteRh(req)) {
+                routeRhRequest(req, res);
+            } 
+            else { handler(req, res) }
         })
         .on('upgrade', (req: any, socket: any, head: any) => {
-            if (process.env.BARE_SERVER_ENABLED === 'true') {
-                if (bare?.shouldRoute(req)) {
-                    bare?.routeUpgrade(req, socket, head);
-                }
+            if (req.url.startsWith('/rammer')) {
+                req.url = req.url.replace('/rammer', '');
             }
-            if (process.env.RAMMERHEAD_SERVER_ENABLED === 'true') {
-                if (req.url.startsWith('/rammer')) {
-                    req.url = req.url.replace('/rammer', '');
-                }
-                if (shouldRouteRh(req)) {
-                    routeRhUpgrade(req, socket, head);
-                } 
+            if (bare?.shouldRoute(req)) {
+                bare?.routeUpgrade(req, socket, head);
+            } 
+            else if (shouldRouteRh(req)) {
+                routeRhUpgrade(req, socket, head);
             }
-            if (req.url?.endsWith('/wisp/')) {
+            else if (req.url?.endsWith('/wisp/')) {
                 wisp.routeRequest(req, socket, head);
             }
         });

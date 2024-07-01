@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'node:url';
-import dotenvx from '@dotenvx/dotenvx';
 import fastifyCompress from '@fastify/compress';
 import fastifyCookie from '@fastify/cookie';
 import fastifyHttpProxy from '@fastify/http-proxy';
@@ -12,7 +11,6 @@ import isDocker from 'is-docker';
 //@ts-ignore THE FILE IS GENERATED AT FUCKING BUILD WHY WOULD I WANT IT TYPE CHECKED
 import { handler as ssrHandler } from '../dist/server/entry.mjs';
 import { serverFactory } from './serverFactory';
-dotenvx.config();
 
 const app = Fastify({ logger: false, serverFactory: serverFactory });
 
