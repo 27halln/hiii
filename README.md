@@ -63,7 +63,6 @@
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
 -   [RammerHead](https://github.com/binary-person/rammerhead)
 -   [Epoxy](https://github.com/mercuryworkshop/epoxy-tls)
--   [Libcurl.js](https://github.com/ading2210/libcurl.js)
 -   HTML, CSS, and JavaScript (DUH)
 ---
 
@@ -201,7 +200,9 @@ To start it in the background
 | `MASQR`                | Enables (`true`)/Disables (`false`) Masqr (most people don't want this)                                   | `false` |
 | `BARE_SERVER_ENABLED`  | Enables (`true`)/Disables (`false`) the integrated bare server. Use this if you already have a server (e.g., reverse proxy) or don't want users accessing it. | `true`  |
 | `PORT`                 | The port that the server listens on ***IGNORED IN THE DOCKER ENVIRONMENTS***                              | `8080` |
-| `GAMES` | Disable (`false`)/Enable (`true`) the reverse proxy for Games | `true`
+| `GAMES` | Disable (`false`)/Enable (`true`) the reverse proxy for Games | `true` |
+| `RAMMERHEAD_SERVER_ENABLED` | Disable (`false`)/Enabled (`true`) the integrated Rammerhead server | `true` |
 | `SITE` | Your websites domain (eg: https://example.com) | `http://localhost:8080` |
 | `BARE_SERVER_OPTION`   | Enables (`true`)/Disables (`false`) the option to use a bare server in the frontend. ***THIS IS A BUILD TIME ONLY VARIABLE*** | `true`  |
-| `GAMES_LINK` | Enables (`true`)/Disables (`false`) access to the games page | `true` |
+| `GAMES_LINK` | Enables (`true`)/Disables (`false`) access to the games page ***BUILD TIME ONLY*** | `true` |
+| `RAMMERHEAD_SERVER_OPTION` | Enabled (`true`)/Disables (`false`) the option to use Rammerhead in the frontend. ***BUILD TIME ONLY*** | `true` |

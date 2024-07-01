@@ -1,5 +1,11 @@
 import createRammerhead from '@rubynetwork/rammerhead/src/server/index.js'
-const rh = createRammerhead();
+function initRHServer() {
+    if (process.env.RAMMERHEAD_SERVER_ENABLED === 'true') {
+        const rh = createRammerhead();
+        return rh;
+    }
+}
+const rh = initRHServer();
 const rammerheadScopes = [
     '/rammerhead.js',
     '/hammerhead.js',

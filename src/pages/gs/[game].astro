@@ -32,7 +32,7 @@ if (!GAMES_LINK) {
         </div>
         <proxy-url data-url={decode(url as string)} data-proxy={proxy} class="hidden" />
         {proxy !== "true" ?
-            <iframe id="gameIframe" class="w-full h-full" src={`/gms/${decode(game as string).toLowerCase().replace(/\s/g, '-')}/${decode(baseFile as string)}`} />
+            <iframe id="gameIframe" class="w-full h-full" src={`/gms/${decode(game as string)!.toLowerCase().replace(/\s/g, '-')}/${decode(baseFile as string)}`} />
             :
             <iframe id="gameIframe" class="w-full h-full" src="/load" />
         }
