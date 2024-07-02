@@ -58,14 +58,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         </div>
     </div>
     <script>
-        import { navigate } from "astro:transitions/client";
-        //fudge the window type so TS doesn't complain
-        declare global {
-            interface Window {
-                openApp: any;
-                searchApps: any;
-            }
-        }
+        import { navigate } from "astro:transitions/client"; 
         window.openApp = function(url: string) {
             window.loadProxyScripts().then(() => {
                 navigate("/?link=" + __uv$config.encodeUrl!(url));

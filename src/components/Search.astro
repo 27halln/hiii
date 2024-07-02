@@ -22,7 +22,6 @@ import FrameManager from '@components/FrameManager.astro';
         //simple script I wrote so I don't have to repeat my self (located at: src/ts/serviceWorker.ts)
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
         import { RammerheadEncode } from "@scripts/rammerhead.ts";
-        //fudge the types slightly
         declare var search: any;
         //initially this is null but it gets defined almost immediately
         let link: any = null;

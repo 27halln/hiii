@@ -26,14 +26,7 @@ import { GAMES_LINK } from 'astro:env/client';
         )}
     </div>
 </div>
-<script>
-    //type bs
-    declare global {
-        interface Window {
-            loadMobileNav: any;
-            closeMobileNav: any;
-        }
-    }
+<script> 
     window.loadMobileNav = function() {
         const nav = document.getElementById("mobileNav") as HTMLElement;
         nav.classList.remove("hidden")

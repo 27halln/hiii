@@ -17,19 +17,7 @@ import { Icon } from 'astro-icon/components';
     </div>
 </div>
 <script>
-    import { navigate } from 'astro:transitions/client';
-    //This allows me to fudge the types a little bit, as I know they are defined
-    declare global {
-        interface Window {
-            createLink: any;
-            exitIframe: any;
-            refreshIframe: any;
-            setTitle: any;
-            __uv: any;
-            __get$ProxyUrl: any;
-        }
-    }
-    //same as comment above
+    import { navigate } from 'astro:transitions/client'; 
     function defineVars() {
         const iframe = document.getElementById("iframe") as HTMLIFrameElement;
         const win = iframe.contentWindow;

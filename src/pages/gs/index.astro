@@ -32,12 +32,6 @@ if (!GAMES_LINK) {
         </div>
     </div>
     <script>
-        //fudge the window type so TS doesn't complain
-        declare global {
-            interface Window {
-                searchGames: any;
-            }
-        }
         window.searchGames = function(val: string) {
             let elements: NodeListOf<HTMLElement> = document.querySelectorAll('[data-name]');
             let count = 0;
