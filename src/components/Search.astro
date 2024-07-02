@@ -5,13 +5,13 @@ import FrameManager from '@components/FrameManager.astro';
 ---
 <FrameManager />
 <div class="flex grow flex-row justify-left items-center">
-    <a href="/" class="ml-0 inline no-underline mx-[20px] text-[20px] cursor-pointer">
+    <a aria-label="home" href="/" class="ml-0 inline no-underline mx-[20px] text-[20px] cursor-pointer">
         <svg class="w-[35px] h-[35px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365.37 365.37"><defs>    <style>       .cls-1{    fill:none;    stroke-width:18px;}  .cls-1, .cls-2 {    stroke: var(--accent);    stroke-miterlimit:10;} .cls-2 {    fill: var(--accent);    stroke-width:5px;}    </style>  </defs><circle class="cls-1" cx="182.68" cy="182.68" r="173.68"></circle><path class="cls-2" d="M210.41,66.38A115.27,115.27,0,0,1,70.52,248.19,134,134,0,1,0,210.41,66.38Z" transform="translate(-17.32 -17.32)"></path></svg>
     </a>
     <div id="form-stuff" class="flex grow flex-col transition-all duration-200">
         <div class="flex flex-row">
             <input class="flex grow h-[42px] text-[14px] border-none bg-inherit outline-none" id="form-input" form="search-form" placeholder="Search the web"></input>
-            <button class="h-[14px] bg-transparent submit border-none p-[10px] cursor-pointer text-[--accent]" id="form-submit" form="search-form">
+            <button aria-label="submit form" class="h-[14px] bg-transparent submit border-none p-[10px] cursor-pointer text-[--accent]" id="form-submit" form="search-form">
                 <Icon name="fa-solid:search" />
             </button>
         </div>

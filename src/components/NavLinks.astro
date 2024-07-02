@@ -10,7 +10,7 @@ import { Icon } from 'astro-icon/components';
         <a href="/apps" class="mx-[20px] text-[14px] cursor-pointer hover:underline"> Apps </a>
         {GAMES_LINK && <a href="/gs" class="mx-[20px] text-[14px] cursor-pointer hover:underline"> Games </a> }
     </div>
-    <a href="/options" class="hidden md:block ml-[20px] mr-0 text-[14px] cursor-pointer text-[--accent]">
+    <a aria-label="options" href="/options" class="hidden md:block ml-[20px] mr-0 text-[14px] cursor-pointer text-[--accent]">
         <Icon name="fa-solid:sliders-h" />
     </a>
     <NavMenu />

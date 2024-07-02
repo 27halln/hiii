@@ -17,7 +17,7 @@ if (!GAMES_LINK) {
     <div class="w-full h-full px-[15%]">
         <div class="h-[80px] w-full p-0 flex self-center transition duration-200">
             <div class="flex grow items-center justify-left">
-                <a href="/" class="text-[30px] text-[--accent] mr-[20px]">
+                <a aria-label="home" href="/" class="text-[30px] text-[--accent] mr-[20px]">
                     <Icon name="mdi:chevron-left" />
                 </a>
                 <input oninput="searchGames(this.value)" class="flex flex-grow h-[42px] text-[14px] border-none text-[--text-color] bg-inherit outline-none" placeholder="Search games" id="app-input"></input> 
@@ -26,7 +26,7 @@ if (!GAMES_LINK) {
         <div class="mt-[10px] pb-[60px] w-full grid justify-between gap-[20px] grid-cols-[repeat(auto-fill,166px)]">
             {games.default.map((game) => (
                 <a href={`/gs/${btoa(game.name)}?py=${game.proxy}&url=${btoa(game.url)}&bf=${btoa(game.baseFile)}`} data-name={game.name} class="transition-all hover:scale-105 h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer">
-                    <Image class="object-cover w-[166px] h-[166px] rounded-[5px]" src={images[game.img]()} alt={`${game.name}'s logo`} />
+                    <Image loading="lazy" class="object-cover w-[166px] h-[166px] rounded-[5px]" src={images[game.img]()} alt={`${game.name}'s logo`} />
                 </a>
             ))}
         </div>

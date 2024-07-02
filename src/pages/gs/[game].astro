@@ -19,13 +19,13 @@ if (!GAMES_LINK) {
     <div class="flex flex-col w-full h-full bg-[--background]">
         <div class="h-[80px] w-full px-[15%] flex self-center transition duration-200">
             <div class="flex grow items-center justify-left">
-                <a href="/gs" class="text-[30px] text-[--accent] mr-[20px]">
+                <a aria-label="games homepage" href="/gs" class="text-[30px] text-[--accent] mr-[20px]">
                     <Icon name="mdi:chevron-left" />
                 </a>
                 <p class="text-[16px] grow font-medium text-[--accent]">
                     { decode(game as string) }
                 </p>
-                <button onclick="fullScreenGame()" class="self-right text-[30px] text-[--accent]">
+                <button aria-label="fullscreen game" onclick="fullScreenGame()" class="self-right text-[30px] text-[--accent]">
                     <Icon name="mdi:fullscreen" />
                 </button>
             </div>

@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components';
     <div class="w-full h-full px-[15%]">
         <div class="h-[80px] w-full p-0 flex self-center transition duration-200">
             <div class="flex grow items-center">
-                <a href="/" class="text-[30px] text-[--accent] mr-[20px]">
+                <a aria-label="home" href="/" class="text-[30px] text-[--accent] mr-[20px]">
                     <Icon name="mdi:chevron-left" />
                 </a>
                 <p class="text-[16px] font-medium text-[--accent]">
@@ -27,36 +27,40 @@ import { Icon } from 'astro-icon/components';
         <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
             <p class="mb-[10px] text-[18px] font-medium"> Theme </p>
             <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px] overflow-y-scroll">
-                <li id="ocean" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('ocean')">
-                    Ocean
-                </li>
-                <li id="midnight" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('midnight')">
-                    Midnight
-                </li>
-                <li id="space" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('space')">
-                Space
-                </li>
-                <li id="morning" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('morning')">
-                    Morning
-                </li>
-                <li id="terminal" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('terminal')">
-                    Terminal
-                </li>
-                <li id="resilient" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setTheme('resilient')">
-                    Resilient
-                </li>
+                <ul>
+                    <li id="ocean" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('ocean')">
+                        Ocean
+                    </li>
+                    <li id="midnight" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('midnight')">
+                        Midnight
+                    </li>
+                    <li id="space" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('space')">
+                        Space
+                    </li>
+                    <li id="morning" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('morning')">
+                        Morning
+                    </li>
+                    <li id="terminal" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setTheme('terminal')">
+                        Terminal
+                    </li>
+                    <li id="resilient" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setTheme('resilient')">
+                        Resilient
+                    </li>
+                </ul>
             </div>
         </div>
         {RAMMERHEAD_OPTION &&
             <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
                 <p class="mb-[10px] text-[18px] font-medium"> Proxy </p>
                 <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
-                    <li id="uv" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setProxy('uv')">
-                        Ultraviolet
-                    </li>
-                    <li id="rh" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setProxy('rh')">
-                        RammerHead
-                    </li>
+                    <ul>
+                        <li id="uv" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="setProxy('uv')">
+                            Ultraviolet
+                        </li>
+                        <li id="rh" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="setProxy('rh')">
+                            RammerHead
+                        </li>
+                    </ul>
                 </div>
             </div>
         }
@@ -64,12 +68,14 @@ import { Icon } from 'astro-icon/components';
             <div class="border-t-[1px] border-t-[--border-color] py-[30px]">
                 <p class="mb-[10px] text-[18px] font-medium"> Transport </p>
                 <div class="flex flex-col border-[1px] border-[--border-color] w-full lg:w-[400px] max-h-[200px]">
-                    <li id="epoxy" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="transport('epoxy')">
-                        Epoxy
-                    </li>
-                    <li id="bare" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="transport('bare')">
-                        Bare Server
-                    </li>
+                    <ul>
+                        <li id="epoxy" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px] border-b-[1px] border-b-[--border-color]" onclick="transport('epoxy')">
+                            Epoxy
+                        </li>
+                        <li id="bare" class="py-[20px] px-[18px] cursor-pointer list-none color-[--text-color] hover:underline text-[14px]" onclick="transport('bare')">
+                            Bare Server
+                        </li>
+                    </ul>
                 </div>
             </div>
         }
