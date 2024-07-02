@@ -66,6 +66,13 @@
 -   HTML, CSS, and JavaScript (DUH)
 ---
 
+## Roadmap
+
+- [ ] - [i18n](https://github.com/alexandre-fernandez/astro-i18n)
+- [ ] - More themes
+- [ ] - Other transports
+---
+
 ## Deployment
 
 ### Terminal
