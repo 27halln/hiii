@@ -41,7 +41,7 @@
 
 - Lots and lots of games
 
--   Multiple Proxy Backends:
+-   Multiple Proxy "Backends":
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [RammerHead](https://github.com/binary-person/rammerhead)
 ---
