@@ -23,7 +23,6 @@ import FrameManager from '@components/FrameManager.astro';
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
         import { RammerheadEncode } from "@scripts/rammerhead.ts";
         //fudge the types slightly
-        declare var __uv$config: any;
         declare var search: any;
         //initially this is null but it gets defined almost immediately
         let link: any = null;
@@ -34,15 +33,15 @@ import FrameManager from '@components/FrameManager.astro';
         async function prox(term: string) {
             let url;
             if (localStorage.getItem("incog||proxy") === "uv") {
-                url = __uv$config.prefix + __uv$config.encodeUrl(search(term, localStorage.getItem("incog||search")))
+                url = __uv$config!.prefix + __uv$config.encodeUrl!(search(term, localStorage.getItem("incog||search")))
             } else if (localStorage.getItem("incog||proxy") === "rh") {
                 url = await RammerheadEncode(search(term, localStorage.getItem("incog||search")))
             }
-            const iframe = document.getElementById("iframe") as HTMLIFrameElement
+            const iframe = document.getElementById("iframe") as HTMLIFrameElement;
             const frameManager = document.getElementById("framemanager") as HTMLElement;
             frameManager.classList.remove("hidden");
             iframe.classList.remove("hidden");
-            iframe.src = url || "/load";
+            iframe.src = url as string || "/load";
             if (!iframe) {
                 return; 
             }
@@ -62,7 +61,7 @@ import FrameManager from '@components/FrameManager.astro';
             try {
                 if (link) {
                     initServiceWorker().then(() => {
-                        prox(__uv$config.prefix + link);
+                        prox(__uv$config!.prefix + link);
                         history.pushState({}, "", "/");
                     })
                 }

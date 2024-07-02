@@ -40,7 +40,6 @@ if (!GAMES_LINK) {
     <script>
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
         import { RammerheadEncode } from "@scripts/rammerhead.ts";
-        declare var __uv$config: any;
         declare global {
             interface Window {
                 fullScreenGame: any;
@@ -54,12 +53,12 @@ if (!GAMES_LINK) {
             let url;
             if (localStorage.getItem("incog||proxy") === "uv") {
                 console.log(url)
-                url = __uv$config.prefix + __uv$config.encodeUrl(term)
+                url = __uv$config!.prefix + __uv$config.encodeUrl!(term)
             } else if (localStorage.getItem("incog||proxy") === "rh") {
                 url = await RammerheadEncode(term)
             }
             const iframe = document.getElementById("gameIframe") as HTMLIFrameElement
-            iframe.src = url || "/load";
+            iframe.src = url as string || "/load";
             if (!iframe) {
                 return; 
             }

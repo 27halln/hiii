@@ -30,7 +30,6 @@ import { Icon } from 'astro-icon/components';
         }
     }
     //same as comment above
-    declare var __uv$config: any;
     function defineVars() {
         const iframe = document.getElementById("iframe") as HTMLIFrameElement;
         const win = iframe.contentWindow;
@@ -41,7 +40,7 @@ import { Icon } from 'astro-icon/components';
     window.createLink = function() {
         const vars = defineVars();
         if (vars?.win?.__uv) {
-            navigator.clipboard.writeText(new URL('./?link=' + encodeURIComponent(__uv$config.encodeUrl(vars?.win?.__uv.location.href)), location.href).href);
+            navigator.clipboard.writeText(new URL('./?link=' + encodeURIComponent(__uv$config.encodeUrl!(vars?.win?.__uv.location.href)), location.href).href);
         } 
     }
     window.exitIframe = function() {

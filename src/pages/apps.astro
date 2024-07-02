@@ -66,10 +66,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 searchApps: any;
             }
         }
-        declare var __uv$config: any;
         window.openApp = function(url: string) {
             window.loadProxyScripts().then(() => {
-                navigate("/?link=" + __uv$config.encodeUrl(url));
+                navigate("/?link=" + __uv$config.encodeUrl!(url));
             });
         }
         window.searchApps = function(val: string) {
