@@ -39,8 +39,6 @@
 
 ## Features
 
--   Tons of themes
-
 - Lots and lots of games
 
 -   Multiple Proxy Backends:
