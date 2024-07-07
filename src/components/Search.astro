@@ -28,9 +28,9 @@ import FrameManager from '@components/FrameManager.astro';
         async function prox(term: string) {
             let url;
             if (localStorage.getItem("incog||proxy") === "uv") {
-                url = __uv$config!.prefix + __uv$config.encodeUrl!(search(term, localStorage.getItem("incog||search")))
+                url = __uv$config!.prefix + __uv$config.encodeUrl!(search(term, localStorage.getItem("incog||search") as string))
             } else if (localStorage.getItem("incog||proxy") === "rh") {
-                url = await RammerheadEncode(search(term, localStorage.getItem("incog||search")))
+                url = await RammerheadEncode(search(term, localStorage.getItem("incog||search") as string))
             }
             const iframe = document.getElementById("iframe") as HTMLIFrameElement;
             const frameManager = document.getElementById("framemanager") as HTMLElement;
