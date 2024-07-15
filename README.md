@@ -157,7 +157,7 @@ For info on the build arg check [here](#environment)
 
     - Prebuilt:
     ```bash
-    docker run --env-file ./.env ghcr.io/titaniumnetwork-dev/incognito:latest
+    docker run --env-file ./.env motortruck1221/incognito:latest
     ```
     - Image you built yourself:
     ```bash
