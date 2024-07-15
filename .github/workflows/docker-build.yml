@@ -35,7 +35,7 @@ jobs:
           images: ${{ env.REGISTRY }}/titaniumnetwork-dev/incognito
       - name: Build and push
         id: build-and-push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
