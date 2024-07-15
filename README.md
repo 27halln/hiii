@@ -132,12 +132,12 @@ Prerequisites:
 - Git
 - Docker
 
-1. Clone the repo:
+1. Clone the repo (skip if using prebuilt image):
 ```bash
 git clone https://github.com/titaniumnetwork/incognito && cd incognito
 ```
 
-2. Create an .env file:
+2. Create an .env file (if using prebuilt image, copy the example from the repo):
 ```bash
 cp .env.example .env
 ```
@@ -147,16 +147,22 @@ cp .env.example .env
 nano .env
 ```
 
-4. Build the docker image:
+4. Build the docker image (skip if using prebuilt):
 ```bash
-docker build --build-arg BARE_SERVER_OPTION=true -t incog:latest
+docker build --build-arg BARE_SERVER_OPTION=true GAMES_LINK=true RAMMERHEAD_OPTION=true -t incog:latest
 ```
 For info on the build arg check [here](#environment)
 
 5. Run the docker images:
-```bash
-docker run --env-file ./.env incog:latest
-```
+
+    - Prebuilt:
+    ```bash
+    docker run --env-file ./.env ghcr.io/titaniumnetwork-dev/incognito:latest
+    ```
+    - Image you built yourself:
+    ```bash
+    docker run --env-file ./.env incog:latest
+    ```
 
 #### Docker Compose
 
@@ -164,12 +170,12 @@ Prerequisites:
 - Git
 - Docker w/compose
 
-1. Clone the repo:
+1. Clone the repo (skip if using prebuilt image):
 ```bash
 git clone https://github.com/titaniumnetwork-dev/incognito
 ```
 
-2. Create an .env file:
+2. Create an .env file (if using prebuilt image, copy the example from the repo):
 ```bash
 cp .env.example .env
 ```
@@ -179,21 +185,21 @@ cp .env.example .env
 nano .env
 ```
 
-4. Build the docker image:
+4. Build the docker image (skip if using prebuilt):
 ```bash
-docker compose build
+docker compose -f ./docker-compose.build.yml build
 ```
 
 5. Run the docker image:
-```bash
-docker compose up
-```
-Or:
-```bash
-docker compose up -d
-```
-To start it in the background
 
+    - Prebuilt:
+    ```bash
+    docker compose up
+    ```
+    - Image you built yourself:
+    ```bash
+    docker compose -f ./docker-compose.build.yml up
+    ```
 ---
 
 ## Environment

@@ -2,7 +2,10 @@ version: "3"
 
 services:
   incognito:
-    image: ghcr.io/titaniumnetwork-dev/incognito:latest
+    image: incognito:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: incognito
     restart: unless-stopped
     env_file: '.env'
