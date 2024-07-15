@@ -30,7 +30,7 @@ jobs:
           password: ${{ github.token }}
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@latest
+        uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/titaniumnetwork-dev/incognito
       - name: Build and push
