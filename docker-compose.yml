@@ -2,7 +2,7 @@ version: "3"
 
 services:
   incognito:
-    image: ghcr.io/titaniumnetwork-dev/incognito:latest
+    image: motortruck1221/incognito:latest
     container_name: incognito
     restart: unless-stopped
     env_file: '.env'
