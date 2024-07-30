@@ -18,7 +18,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 <input oninput="searchApps(this.value)" class="flex flex-grow h-[42px] text-[14px] border-none text-[--text-color] bg-inherit outline-none" placeholder="Search apps" id="app-input"></input> 
             </div>
         </div>
-        <div class="mt-[10px] mb-[30px] w-full grid justify-between gap-[20px] grid-cols-[repeat(auto-fill,166px)]">
+        <div class="mt-[10px] mb-[30px] w-full grid justify-center md:justify-between gap-[20px] grid-cols-[repeat(2,60%)] md:grid-cols-[repeat(auto-fill,166px)]">
             <div data-name="google" onclick="openApp('https://google.com')" class="transition-all hover:scale-105 h-[166px] w-[166px] rounded-[5px] border-transparent bg-cover cursor-pointer">
                 <Image loading="eager" class="rounded-[5px]" src={images["/src/assets/apps/google.jpg"]()} alt="Google Logo" />
             </div>
