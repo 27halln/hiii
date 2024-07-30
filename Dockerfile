@@ -7,7 +7,7 @@ COPY . .
 
 RUN apk update
 RUN apk add python3
-RUN python3 -m pip install setuputils --break-system-packages
+RUN python3 -m pip install setuptools --break-system-packages
 RUN npm i -g pnpm
 RUN pnpm install
 RUN pnpm run build
