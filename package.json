@@ -2,7 +2,7 @@
   "name": "Incognito",
   "description": "The official, up to date version of incognito",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "scripts": {
     "dev": "astro dev",
     "start": "dotenvx run -- tsx server/server.ts",
@@ -31,7 +31,7 @@
     "@mercuryworkshop/bare-mux": "^1.1.1",
     "@mercuryworkshop/epoxy-transport": "^2.0.1",
     "@playform/compress": "^0.0.13",
-    "@rubynetwork/corlink-fastify": "^2.0.1",
+    "@rubynetwork/corlink-fastify": "^2.0.2",
     "@titaniumnetwork-dev/ultraviolet": "^3.1.2",
     "@tomphttp/bare-server-node": "^2.0.3",
     "@types/node": "^20.14.9",
