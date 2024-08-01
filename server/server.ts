@@ -24,7 +24,8 @@ if (process.env.MASQR === 'true') {
         unlockedPaths: ['/bare/', '/wisp/'],
         whiteListedURLs: [],
         masqrUrl: 'https://corlink.example.com/validate?license=',
-        builtinCookieParser: false
+        builtinCookieParser: false,
+        v3: false
     });
 }
 await app.register(fastifyCompress, {
