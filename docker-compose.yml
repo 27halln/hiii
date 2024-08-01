@@ -5,6 +5,18 @@ services:
     image: motortruck1221/incognito:latest
     container_name: incognito
     restart: unless-stopped
+    environment:
+      #Just edit the .env file please
+      BARE_SERVER_ENABLED: ${BARE_SERVER_ENABLED} # Turns off/on the ability to use an integrated bare server (server/serverFactory.ts)
+      MASQR: ${MASQR} # Turns off/on the ability to use masqr
+      PORT: ${PORT} # Sets the default port (if using docker this isn't recommended)
+      GAMES: ${GAMES} # Turns off the reverse proxy for the games
+      RAMMERHEAD_SERVER_ENABLED: ${RAMMERHEAD_SERVER_ENABLED} # Turns on/off the integrated RH server
+      #BUILD TIME ONLY VARIABLES BELOW
+      SITE: ${SITE} #The main url of your website
+      BARE_SERVER_OPTION: ${BARE_SERVER_OPTION} # Turns off/on the option to use the bare server (USED AT BUILD TIME ONLY) set to true to enable the option
+      GAMES_LINK: ${GAMES_LINK} #Turns on/off the link in the frontend for games
+      RAMMERHEAD_OPTION: ${RAMMERHEAD_OPTION} #Turns on/off the option to use RammerHead in the frontend 
     env_file: '.env'
     ports:
       # The ports work like this: Host:Container (DO NOT MODIFY THE CONTAINER PORT)
