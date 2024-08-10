@@ -19,9 +19,10 @@ import FrameManager from '@components/FrameManager.astro';
     </div>
     <current-url data-link={link} /> 
     <script>
+        import { RAMMERHEAD_PREFIX } from 'astro:env/client';
         //simple script I wrote so I don't have to repeat my self (located at: src/ts/serviceWorker.ts)
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
-        import { RammerheadEncode } from "@scripts/rammerhead.ts";
+        import { RammerheadEncode } from "@rubynetwork/rammerhead-browser";
         //initially this is null but it gets defined almost immediately
         let link: any = null; 
         //sets the style of the iframe and enables the little panel at the top
@@ -30,7 +31,12 @@ import FrameManager from '@components/FrameManager.astro';
             if (localStorage.getItem("incog||proxy") === "uv") {
                 url = __uv$config!.prefix + __uv$config.encodeUrl!(search(term, localStorage.getItem("incog||search") as string))
             } else if (localStorage.getItem("incog||proxy") === "rh") {
-                url = await RammerheadEncode(search(term, localStorage.getItem("incog||search") as string))
+                if (RAMMERHEAD_PREFIX !== '') {
+                    url = await RammerheadEncode(search(term, localStorage.getItem("incog||search") as string), RAMMERHEAD_PREFIX)
+                }
+                else {
+                    url = await RammerheadEncode(search(term, localStorage.getItem("incog||search") as string))
+                }
             }
             const iframe = document.getElementById("iframe") as HTMLIFrameElement;
             const frameManager = document.getElementById("framemanager") as HTMLElement;

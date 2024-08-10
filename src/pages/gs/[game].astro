@@ -39,7 +39,8 @@ if (!GAMES_LINK) {
     </div>
     <script>
         import { initServiceWorker } from "@scripts/serviceWorker.ts";
-        import { RammerheadEncode } from "@scripts/rammerhead.ts";
+        import { RammerheadEncode } from "@rubynetwork/rammerhead-browser";
+        import { RAMMERHEAD_PREFIX } from "astro:env/client";
         window.fullScreenGame = function() {
             const iframe = document.getElementById("gameIframe") as HTMLIFrameElement;
             iframe.requestFullscreen();
@@ -50,7 +51,12 @@ if (!GAMES_LINK) {
                 console.log(url)
                 url = __uv$config!.prefix + __uv$config.encodeUrl!(term)
             } else if (localStorage.getItem("incog||proxy") === "rh") {
-                url = await RammerheadEncode(term)
+               if (RAMMERHEAD_PREFIX !== '') {
+                    url = await RammerheadEncode(term, RAMMERHEAD_PREFIX)
+                }
+                else {
+                    url = await RammerheadEncode(term)
+                }
             }
             const iframe = document.getElementById("gameIframe") as HTMLIFrameElement
             iframe.src = url as string || "/load";

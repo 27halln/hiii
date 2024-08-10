@@ -47,6 +47,11 @@ export default defineConfig({
                     context: 'client',
                     access: 'public',
                     default: false
+                }),
+                RAMMERHEAD_PREFIX: envField.string({
+                    context: 'client',
+                    access: 'public',
+                    default: '' 
                 })
             }
         }
